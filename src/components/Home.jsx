@@ -76,7 +76,7 @@ const headshotUrl = `${base}saloni-headshot.png`;   // when you re-enable the im
             </a>
             
             <a 
-              href="mailto:saloni1829@gamil.com"
+              href="mailto:saloni1829@gmail.com"
               className="action-button"
             >
               <svg className="action-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
