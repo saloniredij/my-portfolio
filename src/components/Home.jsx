@@ -1,6 +1,12 @@
 import { useState } from 'react'
 
 const Home = () => {
+  // Home.jsx (top of component or file)
+const base = import.meta.env.BASE_URL;              // "/" in dev, "/my-portfolio/" on GH Pages
+const resumeUrl   = `${base}Saloni_Redij_Resumefile.pdf`;
+const headshotUrl = `${base}saloni-headshot.png`;   // when you re-enable the image
+
+
   const socialLinks = [
     {
       name: 'LinkedIn',
@@ -40,7 +46,7 @@ const Home = () => {
         {/* Left side - Headshot */}
         <div className="home-image-wrapper">
           <img 
-            src="/saloni-headshot.png" 
+            src={headshotUrl} 
             alt="Saloni Redij"
             className="home-image"
           />
@@ -59,7 +65,7 @@ const Home = () => {
           {/* Action Buttons - Resume and Email */}
           <div className="home-action-buttons">
             <a 
-              href="/Saloni_Redij_resumefile.pdf" 
+              href={resumeUrl}
               className="action-button"
               download
             >

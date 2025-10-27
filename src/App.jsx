@@ -17,6 +17,24 @@ function App() {
         <main>
           <Home />
           <About />
+
+        {/* Work in progress message */}
+          <div
+            style={{
+              textAlign: 'center',
+              marginTop: '2rem',
+              fontSize: '1.25rem',
+              fontWeight: 500,
+              color: 'var(--text-color)',
+              transition: 'color 0.3s ease',
+            }}
+            className="text-gray-800 dark:text-gray-200"
+          >
+            Work in progress... 😊
+          </div>
+
+
+
           <Experience />
           <Projects />
           <TechStack />
