@@ -35,10 +35,10 @@ function App() {
 
 
 
-          <Experience />
+          {/* <Experience />
           <Projects />
           <TechStack />
-          <Contact />
+          <Contact /> */}
           {/* Home Section */}
 
         </main>
