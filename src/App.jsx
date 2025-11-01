@@ -17,9 +17,11 @@ function App() {
         <main>
           <Home />
           <About />
+          <Experience />
 
-        {/* Work in progress message */}
-          <div
+
+                  {/* Work in progress message */}
+                  <div
             style={{
               textAlign: 'center',
               marginTop: '2rem',
@@ -30,15 +32,11 @@ function App() {
             }}
             className="text-gray-800 dark:text-gray-200"
           >
-            Work in progress... 😊
+            building bit by bit... 😊
           </div>
-
-
-
-          {/* <Experience />
-          <Projects />
-          <TechStack />
-          <Contact /> */}
+          {/* <Projects /> */}
+          {/* <TechStack /> */}
+          {/* <Contact /> */}
           {/* Home Section */}
 
         </main>
