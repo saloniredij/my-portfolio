@@ -4,6 +4,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
+import Education from './components/Education'
 import TechStack from './components/TechStack'
 import Contact from './components/Contact'
 
@@ -18,6 +19,8 @@ function App() {
           <Home />
           <About />
           <Experience />
+          <Projects />
+          <Education />
 
 
                   {/* Work in progress message */}
@@ -34,7 +37,7 @@ function App() {
           >
             building bit by bit... 😊
           </div>
-          {/* <Projects /> */}
+          
           {/* <TechStack /> */}
           {/* <Contact /> */}
           {/* Home Section */}
