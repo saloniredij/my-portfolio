@@ -39,7 +39,7 @@ html.dark .projects-category-tab.active { color: rgb(0,0,0); background-color: r
   will-change: transform;
 }
 
-/* Card - Match education card styling (transparent background, thin border) */
+
 .project-card {
   flex: 0 0 calc(50% - 1rem); min-width: calc(50% - 1rem);
   background-color: transparent; border: 1px solid rgba(128,128,128,0.3);
@@ -55,14 +55,9 @@ html.dark .project-card:not(.expanded):hover { box-shadow: 0 10px 30px rgba(255,
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background-color: rgba(0,0,0,0.55);
-  backdrop-filter: blur(1px);
+
 }
 
-
-/* Expanded */
-
-/* html.dark .project-card.expanded { background-color: rgb(30,41,59); box-shadow: 0 20px 60px rgba(0,0,0,0.8); } */
 
 .project-modal{
   position: fixed;
@@ -177,11 +172,47 @@ html.dark .projects-slider-arrow:hover { background-color: rgba(255,255,255,0.2)
 .projects-slider-arrow.right { right: 1rem; }
 .projects-slider-arrow svg { width: 1.5rem; height: 1.5rem; }
 
+
+.projects-slider.no-transform {
+  transform: none !important;
+}
+
+.projects-slider-wrapper {
+  overflow: visible;
+}
+
+
+.project-card.expanded {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  z-index: 1001;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  background-color: rgb(255,255,255);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+html.dark .project-card.expanded {
+  background-color: rgb(30,41,59);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+
+
 /* Empty */
 .projects-empty {
   text-align: center; padding: 4rem 1rem; color: rgba(0,0,0,0.6); font-family: var(--font-family-brand);
 }
 html.dark .projects-empty { color: rgba(255,255,255,0.6); }
+
+
 
 /* Responsive (projects-specific) */
 @media (max-width: 768px) {
