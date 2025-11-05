@@ -21,6 +21,11 @@ export const navigationItems = [
       href: '#projects'
     },
     {
+      id: 'education',
+      label: 'Education',
+      href: '#education'
+    },
+    {
       id: 'tech-stack',
       label: 'Tech Stack',
       href: '#tech-stack'
