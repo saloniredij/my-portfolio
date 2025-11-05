@@ -1,0 +1,65 @@
+/* Reset and base styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-family-brand), system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+
+/* Ensure proper color scheme */
+html.dark { color-scheme: dark; }
+html.light { color-scheme: light; }
+
+/* Theme-specific body colors */
+html.light body {
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+}
+html.dark body {
+  color: rgb(255, 255, 255);
+  background-color: rgb(15, 23, 42);
+}
+
+/* Typography Helpers */
+.text-heading { font-family: var(--font-family-heading); font-weight: 600; line-height: 1.2; }
+.text-body    { font-family: var(--font-family-brand);   font-weight: 400; line-height: 1.6; }
+.text-subtle  { font-family: var(--font-family-brand);   font-weight: 400; opacity: 0.8; }
+
+/* Section Typography */
+.section-heading {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(0, 0, 0);
+}
+.section-text {
+  font-family: var(--font-family-brand);
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgb(0, 0, 0);
+  opacity: 0.8;
+}
+html.light .section-heading,
+html.light .section-text { color: rgb(0, 0, 0); }
+html.dark .section-heading,
+html.dark .section-text { color: rgb(255, 255, 255); }
+
+/* Button */
+.btn-primary {
+  font-family: var(--font-family-brand);
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(37, 99, 235);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-primary:hover { background-color: rgb(29, 78, 216); }
