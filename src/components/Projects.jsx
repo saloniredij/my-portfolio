@@ -1,19 +1,24 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import { createPortal } from 'react-dom'
+
+const withBase = (path) => {
+  const clean = path.replace(/^\//, '')
+  return new URL(clean, import.meta.env.BASE_URL).href
+}
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [expandedCard, setExpandedCard] = useState(null) // will store the full project object
+  const [expandedCard, setExpandedCard] = useState(null) // stores the full project object
   const sliderRef = useRef(null)
   const containerRef = useRef(null)
 
-  const allProjects = [
+  const allProjects = useMemo(() => ([
     {
       id: 1,
       title: "VisionBros",
       category: "ai",
-      screenshots: ["/screenshot1.jpg", "/screenshot2.jpg"],
+      screenshots: [withBase('screenshot1.jpg'), withBase('screenshot2.jpg')],
       description:
         "Engineered natural language query-based object retrieval on 100 long surveillance videos using CLIP embeddings. Leveraged ChromaDB for scalable storage, indexing and quick retrieval of 100,000 frame embeddings. Deployed Streamlit app to present top 10 retrieval results and collect user feedback to generate new dataset. Implemented feedback loop with hard negative mining trained with transformer architecture using feedback data collected from the UI, boosting object retrieval accuracy from 30% to 70%.",
       descriptionPreview:
@@ -22,9 +27,8 @@ const Projects = () => {
       githubLink: "https://github.com/yourusername/visionbros",
       demoLink: ""
     },
-   
     // more projects...
-  ]
+  ]), [])
 
   const categories = [
     { id: 'all', label: 'All' },
@@ -75,10 +79,14 @@ const Projects = () => {
       if (e.key === 'Escape' && expandedCard) handleCloseExpanded()
     }
     window.addEventListener('keydown', onKey)
-    document.body.style.overflow = expandedCard ? 'hidden' : ''
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = expandedCard ? 'hidden' : ''
+    }
     return () => {
       window.removeEventListener('keydown', onKey)
-      document.body.style.overflow = ''
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = ''
+      }
     }
   }, [expandedCard])
 
@@ -86,6 +94,10 @@ const Projects = () => {
   const ExpandedModal = () => {
     if (!expandedCard) return null
     const p = expandedCard
+
+    // ✅ Safeguard: only portal when document exists
+    if (typeof document === 'undefined' || !document.body) return null
+
     return createPortal(
       <>
         <div className="project-card-overlay" onClick={handleCloseExpanded} />
