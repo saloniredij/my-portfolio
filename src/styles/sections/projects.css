@@ -15,22 +15,22 @@ html.dark .projects-section { background-color: rgb(15,23,42); }
 html.dark .projects-heading { color: rgb(255,255,255); }
 
 /* Category Filter */
-.projects-categories { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; }
+.projects-categories {
+  display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; padding: 0.25rem;
+  background-color: rgba(0,0,0,0.05); border-radius: 0.75rem; width: fit-content; margin-left: auto; margin-right: auto;
+}
+html.dark .projects-categories { background-color: rgba(255,255,255,0.1); }
+
 .projects-category-tab {
-  padding: 0.75rem 1.5rem; border: none; background: none;
+  padding: 0.75rem 1.5rem; border-radius: 0.5rem; border: none; background: none;
   font-family: var(--font-family-brand); font-size: 0.875rem; font-weight: 500;
-  color: rgba(0,0,0,0.6); cursor: pointer; transition: all 0.3s ease; position: relative;
+  color: rgba(0,0,0,0.6); cursor: pointer; transition: all 0.3s ease;
 }
 html.dark .projects-category-tab { color: rgba(255,255,255,0.6); }
-.projects-category-tab:hover { color: rgb(0,0,0); }
-html.dark .projects-category-tab:hover { color: rgb(255,255,255); }
-.projects-category-tab.active { color: rgb(0,0,0); font-weight: 600; }
-html.dark .projects-category-tab.active { color: rgb(255,255,255); }
-.projects-category-tab.active::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-  background-color: rgb(37,99,235); border-radius: 1px;
-}
-html.dark .projects-category-tab.active::after { background-color: rgb(96,165,250); }
+.projects-category-tab:hover { color: rgb(0,0,0); background-color: rgba(0,0,0,0.05); }
+html.dark .projects-category-tab:hover { color: rgb(255,255,255); background-color: rgba(255,255,255,0.1); }
+.projects-category-tab.active { color: rgb(255,255,255); background-color: rgb(0,0,0); font-weight: 600; }
+html.dark .projects-category-tab.active { color: rgb(0,0,0); background-color: rgb(255,255,255); }
 
 /* Slider */
 .projects-slider-wrapper { position: relative; width: 100%; overflow: hidden; padding: 2rem 0; }
@@ -51,22 +51,38 @@ html.dark .projects-category-tab.active::after { background-color: rgb(96,165,25
 html.dark .project-card:not(.expanded):hover { box-shadow: 0 10px 30px rgba(255,255,255,0.1); }
 
 /* Overlay */
-.project-card-overlay { position: fixed; inset: 0; z-index: 999; }
+.project-card-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.55);
+  backdrop-filter: blur(1px);
+}
+
 
 /* Expanded */
-.project-card.expanded {
-  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 90%; max-width: 800px; max-height: 90vh; z-index: 1000; overflow-y: auto; overflow-x: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.5); background-color: rgb(255,255,255); cursor: default;
-  display: flex; flex-direction: column; border: none;
-}
-html.dark .project-card.expanded { background-color: rgb(30,41,59); box-shadow: 0 20px 60px rgba(0,0,0,0.8); }
 
-.project-card.expanded .project-card-description { flex: 1 1 auto; min-height: 0; }
-.project-card.expanded .project-card-text { min-height: 0; }
-.project-card.expanded .project-description-full {
-  word-wrap: break-word; overflow-wrap: break-word; white-space: pre-wrap; max-width: 100%;
+/* html.dark .project-card.expanded { background-color: rgb(30,41,59); box-shadow: 0 20px 60px rgba(0,0,0,0.8); } */
+
+.project-modal{
+  position: fixed;
+  inset: 5vh 0;               /* top/bottom margins from viewport */
+  margin: 0 auto;
+  width: min(90vw, 800px);
+  max-height: 90vh;
+  overflow: auto;
+  z-index: 1001;
+  border-radius: 1rem;
+  background: rgb(255,255,255);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
 }
+html.dark .project-modal{
+  background: rgb(30,41,59);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+}
+
 
 /* Screenshots */
 .project-card-screenshots { width: 100%; height: 250px; overflow: hidden; position: relative; flex-shrink: 0; }
@@ -138,9 +154,11 @@ html.dark .project-link:active { color: rgb(191,219,254); }
 
 /* Close Button */
 .project-card-close {
-  position: absolute; top: 1rem; right: 1rem; width: 2rem; height: 2rem; border-radius: 50%; border: none;
-  background-color: rgba(0,0,0,0.5); color: rgb(255,255,255); cursor: pointer;
-  display: flex; align-items: center; justify-content: center; z-index: 1001; transition: all 0.3s ease;
+  position: absolute; top: 1rem; right: 1rem;
+  width: 2rem; height: 2rem; border-radius: 50%; border: none;
+  background-color: rgba(0,0,0,0.5); color: rgb(255,255,255);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  z-index: 1002; transition: all 0.3s ease;
 }
 .project-card-close:hover { background-color: rgba(0,0,0,0.7); transform: scale(1.1); }
 .project-card-close svg { width: 1.25rem; height: 1.25rem; }
