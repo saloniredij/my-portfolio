@@ -19,51 +19,10 @@
   .about-text { font-family: var(--font-family-brand); font-size: 1.125rem; line-height: 1.8; color: rgb(0,0,0); opacity: 0.9; }
   html.dark .about-text { color: rgb(255,255,255); opacity: 0.9; }
   
-  /* Education Grid */
-  .education-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 1000px; margin: 0 auto;
-  }
-  @media (max-width: 768px) {
-    .education-grid { grid-template-columns: 1fr; gap: 1.5rem; }
-  }
-  
-  /* Education Card */
-  .education-card {
-    background-color: rgba(0,0,0,0.05); border-radius: 1rem; padding: 2rem; transition: all 0.3s ease;
-  }
-  .education-card:hover { background-color: rgba(0,0,0,0.1); transform: translateY(-5px); }
-  html.dark .education-card { background-color: rgba(255,255,255,0.1); }
-  html.dark .education-card:hover { background-color: rgba(255,255,255,0.15); }
-  
-  .education-degree { font-family: var(--font-family-heading); font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; color: rgb(0,0,0); }
-  html.dark .education-degree { color: rgb(255,255,255); }
-  
-  .education-institution { font-family: var(--font-family-brand); font-size: 1rem; color: rgb(37,99,235); margin-bottom: 1rem; }
-  html.dark .education-institution { color: rgb(96,165,250); }
-  
-  .education-cgpa { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; font-family: var(--font-family-brand); }
-  .cgpa-label { font-weight: 500; color: rgb(0,0,0); opacity: 0.7; }
-  .cgpa-value { font-weight: 600; color: rgb(37,99,235); }
-  html.dark .cgpa-label { color: rgb(255,255,255); opacity: 0.7; }
-  html.dark .cgpa-value { color: rgb(96,165,250); }
-  
-  .education-courses { margin-top: 1.5rem; }
-  .courses-heading { font-family: var(--font-family-heading); font-size: 1rem; font-weight: 600; margin-bottom: 1rem; color: rgb(0,0,0); }
-  html.dark .courses-heading { color: rgb(255,255,255); }
-  
-  .courses-list { list-style: none; padding: 0; margin: 0; }
-  .course-item {
-    font-family: var(--font-family-brand); font-size: 0.9rem; padding: 0.5rem 0; color: rgb(0,0,0); opacity: 0.8;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-  }
-  .course-item:last-child { border-bottom: none; }
-  html.dark .course-item { color: rgb(255,255,255); opacity: 0.8; border-bottom-color: rgba(255,255,255,0.1); }
-  
   /* Responsive (about-specific) */
   @media (max-width: 768px) {
     .about-section { padding: 4rem 1rem; }
     .about-heading { font-size: 2rem; }
     .about-text { font-size: 1rem; }
-    .education-card { padding: 1.5rem; }
   }
   
