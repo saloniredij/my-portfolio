@@ -111,16 +111,16 @@
   html.dark .timeline-card-title-vertical { color: rgb(255,255,255); }
   
   .timeline-card-period-vertical {
-    font-family: var(--font-family-brand); font-size: 0.875rem; font-weight: 500; color: rgb(245,158,11);
+    font-family: var(--font-family-brand); font-size: 0.875rem; font-weight: 500; color: rgb(255,255,255);
     margin-bottom: 1rem; width: 100%; text-align: left; white-space: nowrap;
   }
-  html.dark .timeline-card-period-vertical { color: rgb(251,191,36); }
+  html.dark .timeline-card-period-vertical { color: rgb(255,255,255); }
   
   .timeline-card-company-vertical {
-    font-family: var(--font-family-brand); font-size: 1rem; font-weight: 500; color: rgb(20,184,166);
+    font-family: var(--font-family-brand); font-size: 1rem; font-weight: 500; color: rgb(37,99,235);
     margin-bottom: 0.5rem; word-wrap: break-word; overflow-wrap: break-word; width: 100%; text-align: left;
   }
-  html.dark .timeline-card-company-vertical { color: rgb(45,212,191); }
+  html.dark .timeline-card-company-vertical { color: rgb(96,165,250); }
   
   .timeline-card-description-vertical {
     font-family: var(--font-family-brand); font-size: 0.95rem; line-height: 1.6; color: rgb(0,0,0); opacity: 0.8;
@@ -196,7 +196,8 @@
     .timeline-card-marker-vertical { left: 2rem; transform: translateX(-50%); }
     .timeline-card-content-vertical { width: 100%; max-width: 100%; }
   
-    .timeline-card-vertical.left .timeline-card-period-vertical { text-align: right; white-space: nowrap; }
+    .timeline-card-vertical.left .timeline-card-period-vertical { 
+      white-space: nowrap; }
     .timeline-card-vertical.right .timeline-card-period-vertical { text-align: left; white-space: nowrap; }
     .timeline-card-period-vertical { white-space: normal; }
   
