@@ -66,6 +66,12 @@ const Navigation = () => {
 
   return (
     <>
+      {/* Mobile Menu Button - appears on left on mobile */}
+      <MobileMenuButton 
+        isOpen={isMobileMenuOpen} 
+        onClick={toggleMobileMenu} 
+      />
+
       {/* Desktop Navigation */}
       <nav className="header-nav" ref={navRef}>
         {/* Single sliding active box */}
@@ -80,14 +86,6 @@ const Navigation = () => {
           />
         ))}
       </nav>
-
-      {/* Mobile Menu Button */}
-      <div className="md:hidden">
-        <MobileMenuButton 
-          isOpen={isMobileMenuOpen} 
-          onClick={toggleMobileMenu} 
-        />
-      </div>
 
       {/* Mobile Menu */}
       <MobileMenu

@@ -9,26 +9,14 @@ const Header = () => {
     <header className={`header ${theme}`}>
       <div className="header-container">
         <div className="header-content">
-          {/* Logo/Brand */}
-          <div className="header-logo">
-            <a 
-              href="#home" 
-              onClick={(e) => {
-                e.preventDefault()
-                document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' })
-              }}
-              className="header-logo-link"
-            >
-              Saloni Redij
-            </a>
-          </div>
-
-          {/* Navigation */}
+          {/* Navigation (desktop) */}
           <Navigation />
 
-          {/* Theme Toggle */}
-          <div className="header-theme-toggle">
-            <ThemeToggle />
+          {/*theme toggle */}
+          <div className="header-controls">
+            <div className="header-theme-toggle">
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>

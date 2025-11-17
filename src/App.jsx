@@ -12,11 +12,13 @@ import Footer from './components/Footer'
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen">
+      <div style={{ width: '100%', margin: '0 auto', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <Header />
+
         
         {/* Main content area with sections */}
-        <main>
+        <main style={{ width: '100%', margin: '0 auto' }}>
+
           <Home />
           <About />
           <Experience />
