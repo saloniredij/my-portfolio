@@ -1,7 +1,7 @@
 /* Reset / base for footer to make it clearly separated */
 .site-footer {
   width: 100%;
-  padding: 2.5rem 0 3.25rem;
+  padding: 1.5rem 0 2rem;
   background: transparent;
   box-sizing: border-box;
   color: rgba(255,255,255,0.9);
@@ -79,5 +79,5 @@ html:not(.dark) .footer-copy { color: rgba(0,0,0,0.55); }
 @media (max-width: 480px) {
   .footer-icon { width: 34px; height: 34px; }
   .footer-icon svg { width: 16px; height: 16px; }
-  .site-footer { padding: 2rem 0 2.5rem; }
+  .site-footer { padding: 1.25rem 0 1.75rem; }
 }

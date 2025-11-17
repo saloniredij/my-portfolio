@@ -24,19 +24,6 @@
   align-items: center;
   gap: 0.5rem;
 }
-
-  /* .header-logo { flex-shrink: 0; }
-  
-  .header-logo-link {
-    font-family: var(--font-family-heading);
-    font-size: 1.25rem; font-weight: 700; color: rgb(0,0,0);
-    text-decoration: none; transition: color 0.2s ease;
-  }
-  .header-logo-link:hover { color: rgb(37, 99, 235); }
-  .header.light .header-logo-link { color: rgb(0, 0, 0); }
-  .header.light .header-logo-link:hover { color: rgb(37, 99, 235); }
-  .header.dark .header-logo-link { color: rgb(255, 255, 255); }
-  .header.dark .header-logo-link:hover { color: rgb(96, 165, 250); } */
   
  .header-nav { 
   margin-left: 0;

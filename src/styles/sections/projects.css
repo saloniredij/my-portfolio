@@ -1,7 +1,7 @@
 /* Projects Section */
 .projects-section {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  padding: 6rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
+  padding: 2.5rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
 }
 html.dark .projects-section { background-color: rgb(15,23,42); }
 
@@ -207,16 +207,16 @@ html.dark .project-card.expanded {
 
 
 /* Empty */
-.projects-empty {
-  text-align: center; padding: 4rem 1rem; color: rgba(0,0,0,0.6); font-family: var(--font-family-brand);
+  .projects-empty {
+  text-align: center; padding: 2.5rem 1rem; color: rgba(0,0,0,0.6); font-family: var(--font-family-brand);
 }
 html.dark .projects-empty { color: rgba(255,255,255,0.6); }
 
 
 
 /* Responsive (projects-specific) */
-@media (max-width: 768px) {
-  .projects-section { padding: 4rem 1rem; }
+  @media (max-width: 768px) {
+  .projects-section { padding: 2.5rem 1rem; }
   .projects-heading { font-size: 2rem; }
   .projects-slider-wrapper { padding: 1rem 0; }
   .projects-slider { gap: 1rem; }

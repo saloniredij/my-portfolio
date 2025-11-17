@@ -1,14 +1,17 @@
 /* Tech Stack Section */
 .techstack-section {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  padding: 6rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
+  padding: 4rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
 }
 html.dark .techstack-section { background-color: rgb(15,23,42); }
 
 .techstack-container { max-width: 1400px; margin: 0 auto; width: 100%; }
 .techstack-content { display: flex; flex-direction: column; gap: 3rem; width: 100%; }
 
-.techstack-heading-wrapper { text-align: center; margin-bottom: 2rem; }
+.techstack-heading-wrapper { 
+  text-align: center; 
+  /* margin-bottom: 2rem;  */
+}
 .techstack-heading {
   font-family: var(--font-family-heading); font-size: 2.5rem; font-weight: 700; color: rgb(0,0,0);
   margin-bottom: 0.5rem;
@@ -152,7 +155,7 @@ html.dark .techstack-tech-pill:hover {
 }
 
 @media (max-width: 768px) {
-  .techstack-section { padding: 4rem 1rem; }
+  .techstack-section { padding: 2.5rem 1rem; }
   .techstack-heading { font-size: 2rem; }
   .techstack-subtitle { font-size: 0.875rem; }
   .techstack-category { padding: 1.75rem 1.5rem; gap: 1.5rem; }

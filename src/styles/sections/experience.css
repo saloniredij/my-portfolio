@@ -1,7 +1,7 @@
 /* Experience Section */
 .experience-section {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    padding: 6rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
+    padding: 2.5rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
   }
   html.dark .experience-section { background-color: rgb(15,23,42); }
   
@@ -182,7 +182,7 @@
   
   /* Responsive (experience-specific) */
   @media (max-width: 768px) {
-    .experience-section { padding: 4rem 1rem; }
+    .experience-section { padding: 2.5rem 1rem; }
     .experience-heading { font-size: 2rem; }
     .experience-tabs { width: 100%; max-width: 400px; }
     .experience-tab { flex: 1; text-align: center; }

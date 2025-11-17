@@ -1,7 +1,7 @@
 /* Education Section - New Layout */
 .education-section {
     min-height: 100vh; display: flex; align-items: center; justify-content: center;
-    padding: 6rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
+    padding: 4rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
   }
   html.dark .education-section { background-color: rgb(15,23,42); }
   
@@ -207,7 +207,7 @@
   
   /* Responsive Design */
   @media (max-width: 768px) {
-    .education-section { padding: 4rem 1rem; }
+    .education-section { padding: 2.5rem 1rem; }
     .education-container { gap: 3rem; }
     .education-section-title,
     .certifications-section-title { font-size: 2rem; }

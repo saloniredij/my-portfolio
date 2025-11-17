@@ -1,7 +1,7 @@
 /* Contact Section */
 .contact-section {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  padding: 6rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
+  padding: 3rem 1rem; background-color: rgb(255,255,255); transition: background-color 0.3s ease;
 }
 html.dark .contact-section { background-color: rgb(15,23,42); }
 
@@ -283,7 +283,7 @@ html.dark .form-submit-button:hover {
 }
 
 @media (max-width: 768px) {
-  .contact-section { padding: 4rem 1rem; }
+  .contact-section { padding: 2.5rem 1rem; }
   .contact-heading { font-size: 2rem; }
   .contact-subtitle { font-size: 0.875rem; }
   .contact-form { padding: 1.5rem; }
