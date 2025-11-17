@@ -33,7 +33,7 @@
   html.dark .experience-tab.active { color: rgb(0,0,0); background-color: rgb(255,255,255); }
   
   /* Timeline (vertical) */
-  .timeline-container { position: relative; width: 100%; padding: 2rem 0; max-width: 1000px; margin: 0 auto; }
+  .timeline-container { position: relative; width: 100%; padding: 2rem 0; max-width: 1200px; margin: 0 auto; }
   .timeline-wrapper.vertical { position: relative; width: 100%; padding: 0 2rem; }
   
   .timeline-line-vertical {
@@ -95,7 +95,7 @@
   /* Card content */
   .timeline-card-content-vertical {
     background-color: rgba(0,0,0,0.05); border-radius: 1rem; padding: 2rem; transition: all 0.3s ease;
-    display: flex; flex-direction: column; width: 480px; max-width: 480px; word-wrap: break-word; overflow-wrap: break-word;
+    display: flex; flex-direction: column; width: 600px; max-width: 600px; word-wrap: break-word; overflow-wrap: break-word;
     box-sizing: border-box; text-align: left;
   }
   html.dark .timeline-card-content-vertical { background-color: rgba(255,255,255,0.1); }

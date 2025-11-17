@@ -6,3 +6,6 @@
 @import "./styles/sections/experience.css";
 @import "./styles/sections/projects.css";
 @import "./styles/sections/education.css";
+@import './styles/sections/techstack.css';
+@import "./styles/sections/contact.css";
+@import "./styles/sections/footer.css";

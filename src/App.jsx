@@ -7,6 +7,7 @@ import Projects from './components/Projects'
 import Education from './components/Education'
 import TechStack from './components/TechStack'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -21,26 +22,10 @@ function App() {
           <Experience />
           <Projects />
           <Education />
+          <TechStack />
+          <Contact />
+          <Footer />
 
-
-                  {/* Work in progress message */}
-                  <div
-            style={{
-              textAlign: 'center',
-              marginTop: '2rem',
-              fontSize: '1.25rem',
-              fontWeight: 500,
-              color: 'var(--text-color)',
-              transition: 'color 0.3s ease',
-            }}
-            className="text-gray-800 dark:text-gray-200"
-          >
-            building bit by bit... 😊
-          </div>
-          
-          {/* <TechStack /> */}
-          {/* <Contact /> */}
-          {/* Home Section */}
 
         </main>
       </div>

@@ -11,7 +11,7 @@ const Experience = () => {
   const professionalExperience = [
     {
       id: 1,
-      title: "Applied Software Engineer Intern",
+      title: "AI Application Developer Intern",
       company: "Youro LLC",
       period: "June 2025 - August 2025",
       description: "",
@@ -22,17 +22,17 @@ const Experience = () => {
       ],
       technologies: []
     },
-    {
-      id: 2,
-      title: "Graduate Research Assistant (Machine Learning)",
-      company: "University at Buffalo, SUNY",
-      period: "February 2025 - Present",
-      description: "",
-      achievements: [
-        // Add your achievements here
-      ],
-      technologies: []
-    },
+    // {
+    //   id: 2,
+    //   title: "Graduate Research Assistant (Machine Learning)",
+    //   company: "University at Buffalo, SUNY",
+    //   period: "February 2025 - Present",
+    //   description: "",
+    //   achievements: [
+    //     // Add your achievements here
+    //   ],
+    //   technologies: []
+    // },
     {
       id: 3,
       title: "Software Developer I",

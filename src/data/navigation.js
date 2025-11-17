@@ -26,9 +26,9 @@ export const navigationItems = [
       href: '#education'
     },
     {
-      id: 'tech-stack',
-      label: 'Tech Stack',
-      href: '#tech-stack'
+      id: 'techstack',
+      label: 'Skills',
+      href: '#techstack'
     },
     {
       id: 'contact',
