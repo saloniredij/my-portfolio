@@ -30,9 +30,9 @@ export const navigationItems = [
       label: 'Skills',
       href: '#techstack'
     },
-    {
-      id: 'contact',
-      label: 'Contact Me',
-      href: '#contact'
-    }
+    // {
+    //   id: 'contact',
+    //   label: 'Contact Me',
+    //   href: '#contact'
+    // }
   ]
