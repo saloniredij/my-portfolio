@@ -1,33 +1,50 @@
 /* Header */
 .header {
-    position: sticky; top: 0; z-index: 50;
-    background-color: transparent; border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+  .header.light { 
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(0, 0, 0, 0.1);  
+}
+
+  .header.dark  { 
+    background-color: rgba(15, 23, 42, 0.9);   
+    border-bottom-color: rgba(255,255,255,0.1); 
   }
-  .header.light { background-color: rgba(255, 255, 255, 0.9); border-bottom-color: rgba(0,0,0,0.1); }
-  .header.dark  { background-color: rgba(15, 23, 42, 0.9);   border-bottom-color: rgba(255,255,255,0.1); }
   
-  .header-container { max-width: 1280px; margin: 0 auto; padding: 0 1rem; }
+  .header-container { 
+    max-width: 1280px; 
+    margin: 0.75rem auto; 
+    padding: 0 1rem; 
+  }
+
+  
   @media (min-width: 640px) { .header-container { padding: 0 1.5rem; } }
   @media (min-width: 1024px){ .header-container { padding: 0 2rem;   } }
   
   
   .header-content {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 4rem;
+  justify-content: flex-start;;
 }
 
 .header-controls {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-left: auto;   
 }
   
  .header-nav { 
   margin-left: 0;
-  display: none;
+  display: flex;
+  gap: 0.25rem;
 }
   @media (min-width: 768px) { 
   .header-nav { 
@@ -44,33 +61,85 @@
   }
   
   /* Nav links + sliding active box */
-  .nav-link {
-    display: grid; align-items: center; height: 2.25rem; padding: 0 1rem;
-    font-family: var(--font-family-brand); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.025em;
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none; transition: color 0.2s ease; position: relative; z-index: 1;
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.25rem;
+  padding: 0 1rem;
+  font-family: var(--font-family-brand);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+}
+
+
+ 
+.nav-link:hover { 
+    color: rgb(255, 255, 255); 
+}
+
+
+.nav-link.active {
+  position: relative;
+  color: currentColor;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  height: 3px;
+  width: 60%;              /* nice short underline */
+  background: currentColor;
+  border-radius: 2px;
+  /* optional smoothness */
+  transition: width 0.2s ease, opacity 0.2s ease;
+}
+
+  
+  .header.light .nav-link { 
+    color: rgba(15, 23, 42, 0.6);
   }
-  .nav-link:hover { color: rgb(255, 255, 255); }
-  .nav-link.active { color: rgb(24, 24, 27); transition: color 0.5s ease; }
+
+  .header.light .nav-link:hover { 
+    color: rgb(15, 23, 42);
+  }
+
+  .header.light .nav-link.active { 
+    
+    color: rgb(15, 23, 42);
+  }
+
   
-  .header.light .nav-link { color: rgba(0,0,0,0.5); }
-  .header.light .nav-link:hover { color: rgb(0,0,0); }
-  .header.light .nav-link.active { color: rgb(255, 255, 255); }
-  
-  .header.dark .nav-link { color: rgba(255,255,255,0.5); }
-  .header.dark .nav-link:hover { color: rgb(255,255,255); }
-  .header.dark .nav-link.active { color: rgb(24,24,27); }
+  .header.dark .nav-link { 
+    color: rgba(255, 255, 255, 0.55); 
+  }
+
+
+  .header.dark .nav-link:hover { 
+      color: #ffffff;
+  }
+
+
+  .header.dark .nav-link.active { 
+    color: #ffffff; 
+  }
+
+
   
   .header-nav { position: relative; display: none; gap: 0.25rem; }
   @media (min-width: 768px) { .header-nav { display: flex; } }
-  .header-nav .active-box {
-    position: absolute; background-color: rgb(255,255,255);
-    border-radius: 0.5rem; z-index: 0;
-    transition: top .5s ease, left .5s ease, width .5s ease, height .5s ease;
-    pointer-events: none;
-  }
-  .header.light .header-nav .active-box { background-color: rgb(0,0,0); }
-  .header.dark  .header-nav .active-box { background-color: rgb(255,255,255); }
+  /* Remove the active-box background highlight */
   
   /* Theme toggle */
   .theme-toggle-button {
@@ -166,7 +235,7 @@
 .mobile-menu-nav .nav-link.active {
   color: rgb(255,255,255);
   background-color: rgb(96,165,250);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Light mode mobile menu nav links */

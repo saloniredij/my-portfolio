@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef } from 'react'
 
 const Experience = () => {
-  const [selectedTab, setSelectedTab] = useState('professional')
   const [expandedProfessional, setExpandedProfessional] = useState(false)
   const [expandedLeadership, setExpandedLeadership] = useState(false)
-  const [animatedCardIndex, setAnimatedCardIndex] = useState(-1)
+  const [animatedCardIndex, setAnimatedCardIndex] = useState(0) // still used for highlight
   const timelineRef = useRef(null)
-  const animationIntervalRef = useRef(null)
 
   const professionalExperience = [
     {
@@ -22,17 +20,6 @@ const Experience = () => {
       ],
       technologies: []
     },
-    // {
-    //   id: 2,
-    //   title: "Graduate Research Assistant (Machine Learning)",
-    //   company: "University at Buffalo, SUNY",
-    //   period: "February 2025 - Present",
-    //   description: "",
-    //   achievements: [
-    //     // Add your achievements here
-    //   ],
-    //   technologies: []
-    // },
     {
       id: 3,
       title: "Software Developer I",
@@ -62,9 +49,7 @@ const Experience = () => {
       company: "D.Y. Patil University",
       period: "January 2021 - May 2022",
       description: "",
-      achievements: [
-        // Add your achievements here
-      ],
+      achievements: [],
       technologies: []
     },
     {
@@ -73,9 +58,7 @@ const Experience = () => {
       company: "GlobalShala",
       period: "November 2021 - March 2022",
       description: "",
-      achievements: [
-        // Add your achievements here
-      ],
+      achievements: [],
       technologies: []
     },
     {
@@ -84,26 +67,21 @@ const Experience = () => {
       company: "Cynthians Edtech",
       period: "April 2021 - June 2021",
       description: "",
-      achievements: [
-        // Add your achievements here
-      ],
+      achievements: [],
       technologies: []
-    },
+    }
   ]
-
 
   const leadershipExperience = [
     {
-        id: 1,
-        title: "McKinsey Forward Learner",
-        organization: "McKinsey & Company",
-        period: "October 2025 - December 2025",
-        description: "",
-        achievements: [
-          // Add your achievements here
-        ],
-        technologies: []
-      },
+      id: 1,
+      title: "McKinsey Forward Learner",
+      organization: "McKinsey & Company",
+      period: "October 2025 - December 2025",
+      description: "",
+      achievements: [],
+      technologies: []
+    },
     {
       id: 2,
       title: "Student Assistant",
@@ -194,326 +172,237 @@ const Experience = () => {
         "Developed strong communication and public relations skills while supporting social welfare initiatives."
       ],
       technologies: []
-    },
+    }
   ]
 
-  // Show first 3 by default, then all when expanded
   const initialCount = 3
-  const displayedProfessional = expandedProfessional 
-    ? professionalExperience 
+  const displayedProfessional = expandedProfessional
+    ? professionalExperience
     : professionalExperience.slice(0, initialCount)
-  const displayedLeadership = expandedLeadership 
-    ? leadershipExperience 
+
+  const displayedLeadership = expandedLeadership
+    ? leadershipExperience
     : leadershipExperience.slice(0, initialCount)
 
   const hasMoreProfessional = professionalExperience.length > initialCount
-  const hasMoreLeadership = leadershipExperience.length > initialCount
+  const hasMoreLeadership   = leadershipExperience.length > initialCount
 
-  // Animation effect
+  // IntersectionObserver only for highlighting cards now
+  useEffect(() => {
+    const cards = timelineRef.current?.querySelectorAll('.timeline-card-vertical')
+    if (!cards || cards.length === 0) return
 
-// Scroll-based animation using Intersection Observer
-// Scroll-based animation using Intersection Observer - Replace the useEffect (around line 123-155)
-    useEffect(() => {
-        if (selectedTab !== 'professional') {
-        setAnimatedCardIndex(-1)
-        return
-        }
-    
-        const cards = timelineRef.current?.querySelectorAll('.timeline-card-vertical')
-        if (!cards || cards.length === 0) return
-    
-        const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: [0, 0.1, 0.5, 1] // Trigger at 30% visibility
-        }
-    
-        const observerCallback = (entries) => {
-        // Find the entry that's most visible (intersectionRatio > 0.3)
-        let mostVisibleIndex = -1
-        let maxRatio = 0
-    
-        entries.forEach((entry, index) => {
-            // Find which card this entry corresponds to
-            const cardIndex = Array.from(cards).indexOf(entry.target)
-            
-            if (entry.intersectionRatio >= 0.3 && entry.intersectionRatio > maxRatio) {
-            maxRatio = entry.intersectionRatio
-            mostVisibleIndex = cardIndex
-            }
-        })
-    
-        if (mostVisibleIndex >= 0) {
-            setAnimatedCardIndex(mostVisibleIndex)
-        }
-        }
-    
-        const observer = new IntersectionObserver(observerCallback, observerOptions)
-        
-        cards.forEach(card => {
-        observer.observe(card)
-        })
-    
-        // Also set initial card if first one is visible
-        const firstCard = cards[0]
-        if (firstCard) {
-        const rect = firstCard.getBoundingClientRect()
-        const viewportHeight = window.innerHeight
-        const cardVisibleHeight = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0)
-        const visibleRatio = cardVisibleHeight / rect.height
-        
-        if (visibleRatio >= 0.3) {
-            setAnimatedCardIndex(0)
-        }
-        }
-    
-        return () => {
-        observer.disconnect()
-        }
-    }, [selectedTab, displayedProfessional])
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: [0, 0.1, 0.5, 1]
+    }
 
-    useEffect(() => {
-        if (selectedTab !== 'professional' || animatedCardIndex < 0) return
-  
-        const updateIconPosition = () => {
-          const marker = timelineRef.current?.querySelector(
-            `.timeline-card-marker-vertical[data-marker-index="${animatedCardIndex}"]`
-          )
-          
-          if (marker && marker.parentElement) {
-            const markerRect = marker.getBoundingClientRect()
-            const containerRect = timelineRef.current?.getBoundingClientRect()
-            
-            if (containerRect) {
-              const relativeTop = markerRect.top - containerRect.top + markerRect.height / 2
-              const icon = timelineRef.current?.querySelector('.timeline-animated-icon')
-              if (icon) {
-                icon.style.top = `${relativeTop}px`
-              }
-            }
-          }
+    const observerCallback = (entries) => {
+      let mostVisibleIndex = -1
+      let maxRatio = 0
+
+      entries.forEach(entry => {
+        const cardIndex = Array.from(cards).indexOf(entry.target)
+        if (entry.intersectionRatio >= 0.3 && entry.intersectionRatio > maxRatio) {
+          maxRatio = entry.intersectionRatio
+          mostVisibleIndex = cardIndex
         }
-  
-        updateIconPosition()
-        window.addEventListener('scroll', updateIconPosition)
-        window.addEventListener('resize', updateIconPosition)
-  
-        return () => {
-          window.removeEventListener('scroll', updateIconPosition)
-          window.removeEventListener('resize', updateIconPosition)
-        }
-      }, [selectedTab, animatedCardIndex])
+      })
+
+      if (mostVisibleIndex >= 0) setAnimatedCardIndex(mostVisibleIndex)
+    }
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions)
+    cards.forEach(card => observer.observe(card))
+
+    return () => observer.disconnect()
+  }, [displayedProfessional])
 
   return (
     <section id="experience" className="experience-section">
       <div className="experience-container">
         <div className="experience-content">
-          {/* Heading */}
-          {/* <div className="experience-heading-wrapper">
+          <div className="experience-heading-wrapper">
             <h2 className="experience-heading">Experience</h2>
-          </div> */}
-
-          {/* Tab Selection */}
-          <div className="experience-tabs">
-            <button
-              className={`experience-tab ${selectedTab === 'professional' ? 'active' : ''}`}
-              onClick={() => setSelectedTab('professional')}
-            >
-              Professional Experience
-            </button>
-            <button
-              className={`experience-tab ${selectedTab === 'leadership' ? 'active' : ''}`}
-              onClick={() => setSelectedTab('leadership')}
-            >
-              Leadership & Volunteering Experience
-            </button>
           </div>
 
-          {/* Timeline Container */}
+          {/* Professional timeline */}
           <div className="timeline-container" ref={timelineRef}>
-            {/* Animated Icon */}
-            {selectedTab === 'professional' && displayedProfessional.length > 0 && animatedCardIndex >= 0 && (
-            <div 
-                className="timeline-animated-icon"
-                data-card-index={animatedCardIndex}
-            >
-                <svg className="work-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-            </div>
-            )}
+            <div className="timeline-wrapper vertical">
+              <div className="timeline-line-vertical" />
 
-            {/* Professional Experience Timeline */}
-            {selectedTab === 'professional' && (
-              <div className="timeline-wrapper vertical">
-                <div className="timeline-line-vertical"></div>
-                <div className="timeline-cards-vertical">
-                {displayedProfessional.map((exp, index) => {
-                const isLeft = index % 2 === 0;
-                const isHighlighted = animatedCardIndex === index;
+              <div className="timeline-cards-vertical">
+              {displayedProfessional.map((exp, index) => {
+                const isHighlighted = animatedCardIndex === index
                 return (
-                    <div 
-                    key={exp.id} 
-                    className={`timeline-card-vertical ${isLeft ? 'left' : 'right'} ${isHighlighted ? 'highlighted' : ''}`}
+                  <div
+                    key={exp.id}
+                    className={`timeline-card-vertical ${isHighlighted ? 'highlighted' : ''}`}
                     data-card-index={index}
                   >
-                    <div className="timeline-card-marker-vertical" data-marker-index={index}></div>
+                    <div
+                      className="timeline-card-marker-vertical"
+                      data-marker-index={index}
+                    />
 
-                    <div className="timeline-card-content-vertical">
+                      <div className="timeline-card-content-vertical">
                         <h3 className="timeline-card-title-vertical">{exp.title}</h3>
                         <div className="timeline-card-company-vertical">{exp.company}</div>
                         <span className="timeline-card-period-vertical">{exp.period}</span>
+
                         {exp.description && (
-                        <p className="timeline-card-description-vertical">{exp.description}</p>
+                          <p className="timeline-card-description-vertical">
+                            {exp.description}
+                          </p>
                         )}
-                        {exp.achievements && exp.achievements.length > 0 && (
-                        <ul className="timeline-card-achievements-vertical">
+
+                        {exp.achievements?.length > 0 && (
+                          <ul className="timeline-card-achievements-vertical">
                             {exp.achievements.map((achievement, idx) => (
-                            <li key={idx}>{achievement}</li>
+                              <li key={idx}>{achievement}</li>
                             ))}
-                        </ul>
+                          </ul>
                         )}
-                        {exp.awards && exp.awards.length > 0 && (
-                        <div className="timeline-card-awards">
+
+                        {exp.awards?.length > 0 && (
+                          <div className="timeline-card-awards">
                             <h4 className="awards-heading">Awards & Recognition</h4>
                             <ul className="awards-list">
-                            {exp.awards.map((award, idx) => (
+                              {exp.awards.map((award, idx) => (
                                 <li key={idx}>{award}</li>
-                            ))}
+                              ))}
                             </ul>
-                        </div>
+                          </div>
                         )}
-                        {exp.technologies && exp.technologies.length > 0 && (
-                        <div className="timeline-card-technologies-vertical">
-                            {exp.technologies.map((tech, idx) => (
-                            <span key={idx} className="technology-tag-vertical">{tech}</span>
-                            ))}
-                        </div>
-                        )}
-                    </div>
-                    </div>
-                )
-                })}
-                  
-                  {/* Expand/Collapse Button */}
-                  {hasMoreProfessional && (
-                    <div className="timeline-expand-wrapper">
-                      <button
-                        className="timeline-expand-button"
-                        onClick={() => setExpandedProfessional(!expandedProfessional)}
-                      >
-                        <svg 
-                          className={`timeline-expand-icon ${expandedProfessional ? 'expanded' : ''}`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                        <svg 
-                          className={`timeline-expand-icon ${expandedProfessional ? 'expanded' : ''}`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                          style={{ marginTop: '-4px' }}
-                        >
-                          <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                        <span className="timeline-expand-text">
-                          {expandedProfessional ? 'Show Less' : 'Show More'}
-                        </span>
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
 
-            {/* Leadership & Volunteering Timeline */}
-            {selectedTab === 'leadership' && (
-              <div className="timeline-wrapper vertical">
-                <div className="timeline-line-vertical"></div>
-                <div className="timeline-cards-vertical">
-                {displayedLeadership.map((exp, index) => {
-                const isLeft = index % 2 === 0;
-                return (
-                    <div key={exp.id} className={`timeline-card-vertical ${isLeft ? 'left' : 'right'}`}>
-                    <div className="timeline-card-marker-vertical"></div>
-                    <div className="timeline-card-content-vertical">
-                        <div className="timeline-card-header-vertical">
-                        <h3 className="timeline-card-title-vertical">{exp.title}</h3>
-                        <span className="timeline-card-period-vertical">{exp.period}</span>
-                        </div>
-                        <div className="timeline-card-company-vertical">{exp.organization}</div>
-                        {exp.description && (
-                        <p className="timeline-card-description-vertical">{exp.description}</p>
-                        )}
-                        {exp.achievements && exp.achievements.length > 0 && (
-                        <ul className="timeline-card-achievements-vertical">
-                            {exp.achievements.map((achievement, idx) => (
-                            <li key={idx}>{achievement}</li>
+                        {exp.technologies?.length > 0 && (
+                          <div className="timeline-card-technologies-vertical">
+                            {exp.technologies.map((tech, idx) => (
+                              <span key={idx} className="technology-tag-vertical">
+                                {tech}
+                              </span>
                             ))}
-                        </ul>
+                          </div>
                         )}
+                      </div>
                     </div>
-                    </div>
-                )
+                  )
                 })}
-                  
-                  {/* Expand/Collapse Button */}
-                  {hasMoreLeadership && (
-                    <div className="timeline-expand-wrapper">
-                      <button
-                        className="timeline-expand-button"
-                        onClick={() => setExpandedLeadership(!expandedLeadership)}
+
+                {hasMoreProfessional && (
+                  <div className="timeline-expand-wrapper">
+                    <button
+                      className="timeline-expand-button"
+                      onClick={() => setExpandedProfessional(!expandedProfessional)}
+                    >
+                      <svg
+                        className={`timeline-expand-icon ${expandedProfessional ? 'expanded' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
                       >
-                        <svg 
-                          className={`timeline-expand-icon ${expandedLeadership ? 'expanded' : ''}`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                        <svg 
-                          className={`timeline-expand-icon ${expandedLeadership ? 'expanded' : ''}`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                          style={{ marginTop: '-4px' }}
-                        >
-                          <path 
-                            strokeLinecap="round" 
-                            strokeLinejoin="round" 
-                            strokeWidth={2} 
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                        <span className="timeline-expand-text">
-                          {expandedLeadership ? 'Show Less' : 'Show More'}
-                        </span>
-                      </button>
-                    </div>
-                  )}
-                </div>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                      <svg
+                        className={`timeline-expand-icon ${expandedProfessional ? 'expanded' : ''}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        style={{ marginTop: '-4px' }}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                      <span className="timeline-expand-text">
+                        {expandedProfessional ? 'Show Less' : 'Show More'}
+                      </span>
+                    </button>
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
+
+          {/* Leadership & Volunteering below */}
+          <div className="leadership-section">
+            <h3 className="leadership-heading">Leadership & Volunteering</h3>
+
+            <div className="leadership-grid-wrapper">
+              <div className="leadership-grid">
+                {displayedLeadership.map(exp => (
+                  <div key={exp.id} className="leadership-card">
+                    {/* icon removed */}
+                    <h4 className="leadership-card-title">{exp.title}</h4>
+                    <div className="leadership-card-organization">{exp.organization}</div>
+                    <span className="leadership-card-period">{exp.period}</span>
+
+                    {exp.description && (
+                      <p className="leadership-card-description">{exp.description}</p>
+                    )}
+
+                    {exp.achievements?.length > 0 && (
+                      <ul className="timeline-card-achievements-vertical">
+                        {exp.achievements.map((achievement, idx) => (
+                          <li key={idx}>{achievement}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {hasMoreLeadership && (
+                <div className="timeline-expand-wrapper">
+                  <button
+                    className="timeline-expand-button"
+                    onClick={() => setExpandedLeadership(!expandedLeadership)}
+                  >
+                    <svg
+                      className={`timeline-expand-icon ${expandedLeadership ? 'expanded' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                    <svg
+                      className={`timeline-expand-icon ${expandedLeadership ? 'expanded' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      style={{ marginTop: '-4px' }}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                    <span className="timeline-expand-text">
+                      {expandedLeadership ? 'Show Less' : 'Show More'}
+                    </span>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

@@ -25,7 +25,7 @@ function App() {
           <Projects />
           <Education />
           <TechStack />
-          <Contact />
+          {/* <Contact /> */}
           <Footer />
 
 
