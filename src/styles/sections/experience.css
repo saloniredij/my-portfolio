@@ -202,12 +202,45 @@ html.dark .timeline-card-title-vertical {
   color: rgb(255, 255, 255);
 }
 
+.timeline-card-header-vertical {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Publication link */
+.timeline-card-publication-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-family-brand);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: rgb(96, 165, 250);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+
+.timeline-card-publication-link:hover {
+  text-decoration: underline;
+  color: rgb(147, 197, 253);
+}
+
+.timeline-card-publication-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
 .timeline-card-period-vertical {
   font-family: var(--font-family-brand);
   font-size: 0.875rem;
   font-weight: 500;
   margin-bottom: 1rem;
   text-align: left;
+    color: rgba(226, 232, 240, 0.85);
 }
 
 .timeline-card-company-vertical {
@@ -249,7 +282,7 @@ html.dark .timeline-card-description-vertical {
   font-family: var(--font-family-brand);
   font-size: 0.9rem;
   line-height: 1.7;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   opacity: 0.8;
   padding-left: 1.5rem;
   position: relative;
@@ -267,9 +300,7 @@ html.dark .timeline-card-description-vertical {
   color: rgb(37, 99, 235);
   font-size: 1.2rem;
 }
-html.dark .timeline-card-achievements-vertical li {
-  color: rgb(255, 255, 255);
-}
+
 html.dark .timeline-card-achievements-vertical li::before {
   color: rgb(96, 165, 250);
 }
@@ -291,10 +322,7 @@ html.dark .timeline-card-awards {
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
-  color: rgb(0, 0, 0);
-}
-html.dark .awards-heading {
-  color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
 }
 
 .awards-list {
@@ -344,16 +372,13 @@ html.dark .timeline-card-technologies-vertical {
   font-size: 0.75rem;
   font-weight: 500;
   padding: 0.25rem 0.75rem;
-  background-color: rgba(0, 0, 0, 0.1);
-  color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.1);
+  color: rgb(255, 255, 255);
   border-radius: 0.375rem;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
-html.dark .technology-tag-vertical {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: rgb(255, 255, 255);
-}
+
 
 /* Expand/Collapse CTA (if used) */
 .timeline-expand-wrapper {

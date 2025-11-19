@@ -6,77 +6,123 @@ const Experience = () => {
   const [animatedCardIndex, setAnimatedCardIndex] = useState(0) // still used for highlight
   const timelineRef = useRef(null)
 
-  const professionalExperience = [
-    {
-      id: 1,
-      title: "AI Application Developer Intern",
-      company: "Youro LLC",
-      period: "June 2025 - August 2025",
-      description: "",
-      achievements: [
-        "Built a real-time doctor-patient chat messaging feature with WebSockets in ReactJS for instant messaging, Spring Boot for backend logic and S3 buckets for storing chat history, reducing in-person follow-ups.",
-        "Implemented medical chatbot using AWS Bedrock Claude Haiku, Amazon Lex and OpenSearch Knowledge Base and RAG pipeline to deliver context-aware answers, reducing repetitive patient queries by 60%.",
-        "Integrated chatbot into web app with REST API calls to Lex and in-memory caching to maintain conversational context, ensuring real-time chats, better server performance and lower cloud storage costs."
-      ],
-      technologies: []
-    },
-        {
-      id: 2,
-      title: "Graduate Research Assistant - Machine Learning",
-      company: "University at Buffalo, SUNY",
-      period: "May 2025 - Present",
-      description: "",
-      achievements: [
-        "Developing segmentation pipeline for automated detection of HRF’s and HRS’s in Optical Coherence Tomography (OCT) scans of eyes, accelerating biomarker identification to support early diagnosis of age macular degeneration and reduce manual screening time."      ],
-      technologies: []
-    },
-    {
-      id: 3,
-      title: "Software Developer I",
-      company: "TIAA GBS",
-      period: "June 2022 - July 2024",
-      description: "",
-      achievements: [
-        "Led key digitalization efforts for retirement and annuity transactions using the Unqork platform, increasing digital submissions by 45 percent year over year and modernizing legacy processes.",
+const professionalExperience = [
+  {
+    id: 1,
+    title: "AI Application Developer Intern",
+    company: "Youro LLC",
+    period: "June 2025 - August 2025",
+    description: "",
+    achievements: [
+      "Built a real-time doctor-patient chat messaging feature with WebSockets in ReactJS for instant messaging, Spring Boot for backend logic and S3 buckets for storing chat history, reducing in-person follow-ups.",
+      "Implemented medical chatbot using AWS Bedrock Claude Haiku, Amazon Lex and OpenSearch Knowledge Base and RAG pipeline to deliver context-aware answers, reducing repetitive patient queries by 60%.",
+      "Integrated chatbot into web app with REST API calls to Lex and in-memory caching to maintain conversational context, ensuring real-time chats, better server performance and lower cloud storage costs."
+    ],
+    technologies: [
+      "ReactJS",
+      "WebSockets",
+      "Spring Boot",
+      "AWS Bedrock",
+      "Amazon Lex",
+      "OpenSearch",
+      "RAG",
+      "REST APIs",
+      "Amazon S3"
+    ]
+  },
+  {
+    id: 2,
+    title: "Graduate Research Assistant - Machine Learning",
+    company: "University at Buffalo, SUNY",
+    period: "May 2025 - Present",
+    description: "",
+    achievements: [
+      "Developing segmentation pipeline for automated detection of HRF’s and HRS’s in Optical Coherence Tomography (OCT) scans of eyes, accelerating biomarker identification to support early diagnosis of age macular degeneration and reduce manual screening time."
+    ],
+    technologies: [
+      "Python",
+      "PyTorch",
+      "Medical Imaging",
+      "Segmentation",
+      "OCT"
+    ]
+  },
+  {
+    id: 3,
+    title: "Software Developer I",
+    company: "TIAA GBS",
+    period: "June 2022 - July 2024",
+    description: "",
+    achievements: [
+      "Led key digitalization efforts for retirement and annuity transactions using the Unqork platform, increasing digital submissions by 45 percent year over year and modernizing legacy processes.",
       "Replaced manual Excel workflows by automating data collection for 1,500 plus executives, cutting turnaround time from five days to two and delivering four million dollars in annual operational savings.",
       "Built microservices in Unqork and Spring Boot, redesigned UI across ten applications, and resolved production issues through Splunk based root cause analysis to improve system reliability and user experience.",
-      "Designed MVPs that informed Wealth Asset Management’s migration strategy, and collaborated across Agile teams to support smooth delivery, effective planning, and continuous improvement."      ],
-      awards: [
-        "TIAA Innovation Award 2023",
-        "Performer for Quarter II 2023, Quarter IV 2023",
-        "Gold and Silver awards for Star Performer of PI 2 2023 and PI 1 2024"
-      ],
-      technologies: []
-    },
-    {
-      id: 4,
-      title: "Research Assistant",
-      company: "D.Y. Patil University",
-      period: "January 2021 - May 2022",
-      description: "",
-      achievements: [
+      "Designed MVPs that informed Wealth Asset Management’s migration strategy, and collaborated across Agile teams to support smooth delivery, effective planning, and continuous improvement."
+    ],
+    awards: [
+      "TIAA Innovation Award 2023",
+      "Performer for Quarter II 2023, Quarter IV 2023",
+      "Gold and Silver awards for Star Performer of PI 2 2023 and PI 1 2024"
+    ],
+    technologies: [
+      "Java",
+      "REST APIs",
+      "Unqork",
+      "Spring Boot",
+      "Microservices",
+      "GitLab",
+      "Jenkins",
+      "JUnit",
+      "Postman",
+    ]
+  },
+  {
+    id: 4,
+    title: "Research Assistant",
+    company: "D.Y. Patil University",
+    period: "January 2021 - May 2022",
+    description: "",
+    achievements: [
       "Contributed to the design and development of an AI powered real time bus navigation system for blind and visually impaired individuals, focusing on voice assisted interaction, route detection, and intuitive user flows.",
-"Built and tested the mobile application modules using Google Maps API, GPS based tracking, Dialogflow, and Firebase to support accurate bus location updates and seamless communication between users and app.",
-"Led iterative usability testing by conducting blindfolded user trials with more than 80 participants, gathering feedback, and improving accessibility features and voice guidance accuracy.",
-"Assisted in structuring the research methodology, analyzing system performance, and documenting results for publication in the ICACC 2022 conference proceedings.",
-"Collaborated with faculty and peers to refine system architecture, validate problem statements, and ensure the solution addressed real mobility barriers faced by visually impaired commuters."],     
-technologies: []
-    },
-    {
-      id: 6,
-      title: "Web Developer Intern",
-      company: "Cynthians Edtech",
-      period: "April 2021 - Oct 2021",
-      description: "",
-      achievements: [
-        "Took on the challenge of replacing outdated manual attendance tracking by building a full stack attendance management system using PHP, CodeIgniter, AJAX, MySQL, and Bootstrap, giving the organization a reliable real time workflow.",
-"Transformed raw attendance data into clear, actionable insights through dashboards and Google Charts, helping teachers and admins quickly spot trends, low engagement, and irregular patterns.",
-"Eliminated error prone spreadsheets and repeated data entry by automating the entire attendance cycle, improving accuracy and day to day efficiency for educators.",
-"Worked closely with academic and operations teams to understand their pain points and shape features that made the system practical, easy to adopt, and aligned with real classroom needs."
-      ],
-      technologies: []
-    }
-  ]
+      "Built and tested the mobile application modules using Google Maps API, GPS based tracking, Dialogflow, and Firebase to support accurate bus location updates and seamless communication between users and app.",
+      "Led iterative usability testing by conducting blindfolded user trials with more than 80 participants, gathering feedback, and improving accessibility features and voice guidance accuracy.",
+      "Assisted in structuring the research methodology, analyzing system performance, and documenting results for publication in the ICACC 2022 conference proceedings.",
+      "Collaborated with faculty and peers to refine system architecture, validate problem statements, and ensure the solution addressed real mobility barriers faced by visually impaired commuters."
+    ],
+    publicationUrl:
+      "https://www.itm-conferences.org/articles/itmconf/abs/2022/04/itmconf_icacc2022_02001/itmconf_icacc2022_02001.html",
+    technologies: [
+      "Android",
+      "Firebase",
+      "Google Maps API",
+      "Dialogflow",
+      "GPS",
+      "Accessibility",
+    ]
+  },
+  {
+    id: 6,
+    title: "Web Developer Intern",
+    company: "Cynthians Edtech",
+    period: "April 2021 - Oct 2021",
+    description: "",
+    achievements: [
+      "Took on the challenge of replacing outdated manual attendance tracking by building a full stack attendance management system using PHP, CodeIgniter, AJAX, MySQL, and Bootstrap, giving the organization a reliable real time workflow.",
+      "Transformed raw attendance data into clear, actionable insights through dashboards and Google Charts, helping teachers and admins quickly spot trends, low engagement, and irregular patterns.",
+      "Eliminated error prone spreadsheets and repeated data entry by automating the entire attendance cycle, improving accuracy and day to day efficiency for educators.",
+      "Worked closely with academic and operations teams to understand their pain points and shape features that made the system practical, easy to adopt, and aligned with real classroom needs."
+    ],
+    technologies: [
+      "PHP",
+      "CodeIgniter",
+      "AJAX",
+      "MySQL",
+      "Bootstrap",
+      "Google Charts"
+    ]
+  }
+]
+
 
   const leadershipExperience = [
     {
@@ -207,7 +253,22 @@ technologies: []
                     />
 
                       <div className="timeline-card-content-vertical">
-                        <h3 className="timeline-card-title-vertical">{exp.title}</h3>
+                        <div className="timeline-card-header-vertical">
+    <h3 className="timeline-card-title-vertical">{exp.title}</h3>
+
+    {/* Only for experiences that have a publicationUrl (Research Assistant) */}
+    {exp.publicationUrl && (
+      <a
+        href={exp.publicationUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="timeline-card-publication-link"
+      >
+        <span>View publication</span>
+        <span className="timeline-card-publication-icon">↗</span>
+      </a>
+    )}
+  </div>
                         <div className="timeline-card-company-vertical">{exp.company}</div>
                         <span className="timeline-card-period-vertical">{exp.period}</span>
 
