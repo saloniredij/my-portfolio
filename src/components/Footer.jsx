@@ -1,6 +1,17 @@
 import React from 'react'
 
 const Footer = () => {
+  const base = import.meta.env.BASE_URL;              // "/" in dev, "/my-portfolio/" on GH Pages
+  const resumeUrl = `${base}Saloni_Redij_Resumefile.pdf`;
+
+  const handleSmoothScroll = (event, targetId) => {
+    event.preventDefault();
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <footer className="site-footer" role="contentinfo">
       <div className="footer-inner">
@@ -21,29 +32,47 @@ const Footer = () => {
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </a>
 
-            <a href="/resume.pdf" className="footer-icon" aria-label="Resume">
+            <a href={resumeUrl} className="footer-icon" aria-label="Resume" download>
               <svg fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path fill="none" d="M14 2v6h6"/></svg>
             </a>
           </nav>
         </div>
 
-        <div className="footer-col">
+<div className="footer-col">
           <h3 className="footer-heading">Quick Links</h3>
           <ul className="footer-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li>
+              <a href="#home" onClick={(e) => handleSmoothScroll(e, 'home')}>
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#about" onClick={(e) => handleSmoothScroll(e, 'about')}>
+                About
+              </a>
+            </li>
+            <li>
+              <a href="#experience" onClick={(e) => handleSmoothScroll(e, 'experience')}>
+                Experience
+              </a>
+            </li>
+            <li>
+              <a href="#techstack" onClick={(e) => handleSmoothScroll(e, 'techstack')}>
+                Skills
+              </a>
+            </li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h3 className="footer-heading">Resources</h3>
           <ul className="footer-links">
-            {/* <li><a href="/blog">Blog</a></li> */}
-            <li><a href="/resume.pdf">Resume</a></li>
-            <li><a href="https://github.com/saloniredij">GitHub</a></li>
+            <li>
+              <a href={resumeUrl} target="_blank" rel="noopener noreferrer">Resume</a>
+            </li>
+            <li>
+              <a href="https://github.com/saloniredij">GitHub</a>
+            </li>
           </ul>
         </div>
 
