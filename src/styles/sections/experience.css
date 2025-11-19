@@ -1,11 +1,15 @@
-/* Experience Section */
+/* =========================================
+   Experience Section (Timeline + Leadership)
+   ========================================= */
+
+/* Base section */
 .experience-section {
   padding: 6rem 1rem 3rem;
-  background-color: rgb(255,255,255);
+  background-color: rgb(255, 255, 255);
   transition: background-color 0.3s ease;
 }
-html.dark .experience-section { 
-  background-color: rgb(15,23,42); 
+html.dark .experience-section {
+  background-color: rgb(15, 23, 42);
 }
 
 .experience-container {
@@ -22,8 +26,9 @@ html.dark .experience-section {
   width: 100%;
 }
 
+/* Heading */
 .experience-heading-wrapper {
-  grid-column: 1 / -1;  
+  grid-column: 1 / -1;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -32,30 +37,35 @@ html.dark .experience-section {
   font-family: var(--font-family-heading);
   font-size: 2.5rem;
   font-weight: 700;
-  color: rgb(0,0,0);
+  color: rgb(0, 0, 0);
 }
-html.dark .experience-heading { 
-  color: rgb(255,255,255); 
+html.dark .experience-heading {
+  color: rgb(255, 255, 255);
 }
-  
+
+/* =========================================
+   Vertical Timeline (Work Experience)
+   ========================================= */
+
 .timeline-container {
-  grid-column: 2 / 12;  
+  grid-column: 2 / 12;
   position: relative;
   width: 100%;
   padding: 2rem 0;
-  max-width: none;       
+  max-width: none;
   margin: 0;
 
   --timeline-line-left: 3rem;
-  --timeline-wrapper-padding: 3rem; 
+  --timeline-wrapper-padding: 3rem;
 }
-  
+
 .timeline-wrapper.vertical {
   position: relative;
   width: 100%;
   padding: 0 var(--timeline-wrapper-padding);
 }
 
+/* Vertical line */
 .timeline-line-vertical {
   position: absolute;
   top: 0;
@@ -64,25 +74,24 @@ html.dark .experience-heading {
   width: 2px;
   background: linear-gradient(
     to bottom,
-    rgba(0,0,0,0.25) 0%,
-    rgba(0,0,0,0.25) 95%,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(0, 0, 0, 0.25) 95%,
     transparent 100%
   );
   z-index: 1;
 }
-
 html.dark .timeline-line-vertical {
   background: linear-gradient(
     to bottom,
-    rgba(255,255,255,0.25) 0%,
-    rgba(255,255,255,0.25) 95%,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0.25) 95%,
     transparent 100%
   );
 }
 
 /* Cards container */
 .timeline-cards-vertical {
-  position: relative;             
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -90,7 +99,7 @@ html.dark .timeline-line-vertical {
   z-index: 2;
 }
 
-/* Individual card sides */
+/* Individual card */
 .timeline-card-vertical {
   position: relative;
   width: 100%;
@@ -99,56 +108,56 @@ html.dark .timeline-line-vertical {
   justify-content: flex-start;
   padding-left: calc(var(--timeline-line-left) + 3rem);
 }
-  
-/* Highlighted */
+
+/* Highlighted state */
 .timeline-card-vertical.highlighted .timeline-card-content-vertical {
-  box-shadow: 0 24px 50px rgba(37,99,235,0.45);
-  border-color: rgba(96,165,250,0.9);
+  box-shadow: 0 24px 50px rgba(37, 99, 235, 0.45);
+  border-color: rgba(96, 165, 250, 0.9);
 }
 html.dark .timeline-card-vertical.highlighted .timeline-card-content-vertical {
-  box-shadow: 0 24px 50px rgba(96,165,250,0.45);
+  box-shadow: 0 24px 50px rgba(96, 165, 250, 0.45);
 }
 
-/* Marker */
+/* Marker on the line */
 .timeline-card-marker-vertical {
   position: absolute;
   top: 1.1rem;
-  left: calc(var(--timeline-line-left) - var(--timeline-wrapper-padding)); /* UPDATED */
+  /* sits exactly on the line, compensating for wrapper padding */
+  left: calc(var(--timeline-line-left) - var(--timeline-wrapper-padding));
   transform: translateX(-50%);
   width: 0.9rem;
   height: 0.9rem;
   border-radius: 50%;
-  background-color: rgb(37,99,235);
-  border: 3px solid rgb(15,23,42);
+  background-color: rgb(37, 99, 235);
+  border: 3px solid rgb(15, 23, 42);
   z-index: 3;
   transition: all 0.3s ease;
 }
 html.dark .timeline-card-marker-vertical {
-  background-color: rgb(96,165,250);
-  border-color: rgb(15,23,42);
+  background-color: rgb(96, 165, 250);
+  border-color: rgb(15, 23, 42);
 }
 
 .timeline-card-vertical:hover .timeline-card-marker-vertical {
-  box-shadow: 0 0 0 4px rgba(37,99,235,0.25);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
 }
 html.dark .timeline-card-vertical:hover .timeline-card-marker-vertical {
-  box-shadow: 0 0 0 4px rgba(96,165,250,0.25);
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.25);
 }
 
 .timeline-card-vertical.highlighted .timeline-card-marker-vertical {
-  box-shadow: 0 0 0 6px rgba(96,165,250,0.45);
+  box-shadow: 0 0 0 6px rgba(96, 165, 250, 0.45);
 }
-
 html.dark .timeline-card-vertical.highlighted .timeline-card-marker-vertical {
-  box-shadow: 0 0 0 6px rgba(96,165,250,0.3);
+  box-shadow: 0 0 0 6px rgba(96, 165, 250, 0.3);
 }
 
 /* Card content */
 .timeline-card-content-vertical {
-  background-color: rgba(15,23,42,0.9);
+  background-color: rgba(15, 23, 42, 0.9);
   border-radius: 1.5rem;
   padding: 2rem 2.5rem;
-  border: 1px solid rgba(148,163,184,0.5);
+  border: 1px solid rgba(148, 163, 184, 0.5);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -156,42 +165,43 @@ html.dark .timeline-card-vertical.highlighted .timeline-card-marker-vertical {
   max-width: 100%;
   box-sizing: border-box;
   text-align: left;
-  box-shadow: 0 18px 35px rgba(15,23,42,0.55);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.55);
 }
 
 html.light .timeline-card-content-vertical {
-  background-color: rgb(15,23,42);
-  border-color: rgba(96,165,250,0.6);
-  box-shadow: 0 18px 35px rgba(15,23,42,0.4);
+  background-color: rgb(15, 23, 42);
+  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.4);
 }
 
 html.dark .timeline-card-content-vertical {
   background-color: transparent;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .timeline-card-content-vertical:hover {
   transform: translateY(-6px);
-  box-shadow: 0 22px 40px rgba(37,99,235,0.30);
+  box-shadow: 0 22px 40px rgba(37, 99, 235, 0.3);
 }
-
 html.dark .timeline-card-content-vertical:hover {
   background-color: transparent;
   box-shadow: none;
 }
-  
+
+/* Card typography */
 .timeline-card-title-vertical {
   font-family: var(--font-family-heading);
   font-size: 1.25rem;
   font-weight: 600;
-  color: rgb(255,255,255);
+  color: rgb(255, 255, 255);
   line-height: 1.3;
   margin-bottom: 0.5rem;
   text-align: left;
 }
+html.dark .timeline-card-title-vertical {
+  color: rgb(255, 255, 255);
+}
 
-html.dark .timeline-card-title-vertical { color: rgb(255,255,255); }
-  
 .timeline-card-period-vertical {
   font-family: var(--font-family-brand);
   font-size: 0.875rem;
@@ -199,352 +209,464 @@ html.dark .timeline-card-title-vertical { color: rgb(255,255,255); }
   margin-bottom: 1rem;
   text-align: left;
 }
-  
+
 .timeline-card-company-vertical {
   font-family: var(--font-family-brand);
   font-size: 1rem;
   font-weight: 500;
-  color: rgb(96,165,250);
+  color: rgb(96, 165, 250);
   margin-bottom: 0.5rem;
   text-align: left;
 }
-
-html.dark .timeline-card-company-vertical { color: rgb(96,165,250); }
+html.dark .timeline-card-company-vertical {
+  color: rgb(96, 165, 250);
+}
 
 .timeline-card-description-vertical {
   font-family: var(--font-family-brand);
   font-size: 0.95rem;
   line-height: 1.6;
-  color: rgb(255,255,255);
+  color: rgb(255, 255, 255);
   opacity: 0.8;
   margin-bottom: 1.5rem;
   text-align: left;
 }
- 
-html.dark .timeline-card-description-vertical { color: rgb(255,255,255); opacity: 0.8; }
-
-.timeline-card-achievements-vertical { 
-  list-style: none; 
-  padding: 0; 
-  margin: 0 0 1.5rem 0; 
-  min-width: 0; 
-  width: 100%; 
-  text-align: left; 
+html.dark .timeline-card-description-vertical {
+  color: rgb(255, 255, 255);
+  opacity: 0.8;
 }
 
-.timeline-card-achievements-vertical li {
-  font-family: var(--font-family-brand); 
-  font-size: 0.9rem; 
-  line-height: 1.7; 
-  color: rgb(0,0,0); 
-  opacity: 0.8;
-  padding-left: 1.5rem; 
-  position: relative; 
-  margin-bottom: 0.75rem; 
-  word-wrap: break-word; 
-  overflow-wrap: break-word;
-  width: 100%; 
-  box-sizing: border-box; 
+/* Achievements list */
+.timeline-card-achievements-vertical {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  min-width: 0;
+  width: 100%;
   text-align: left;
 }
-
+.timeline-card-achievements-vertical li {
+  font-family: var(--font-family-brand);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgb(0, 0, 0);
+  opacity: 0.8;
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
 .timeline-card-achievements-vertical li::before {
-  content: "▹"; 
-  position: absolute; 
-  left: 0; 
-  color: rgb(37,99,235); 
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: rgb(37, 99, 235);
   font-size: 1.2rem;
 }
+html.dark .timeline-card-achievements-vertical li {
+  color: rgb(255, 255, 255);
+}
+html.dark .timeline-card-achievements-vertical li::before {
+  color: rgb(96, 165, 250);
+}
 
-html.dark .timeline-card-achievements-vertical li { color: rgb(255,255,255); }
-html.dark .timeline-card-achievements-vertical li::before { color: rgb(96,165,250); }
-
-/* Awards */
+/* Awards area */
 .timeline-card-awards {
-  margin-top: 1rem; 
-  margin-bottom: 1.5rem; 
-  padding-top: 1rem; 
-  border-top: 1px solid rgba(0,0,0,0.1); 
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
 }
-
-html.dark .timeline-card-awards { border-top-color: rgba(255,255,255,0.1); }
-
-.awards-heading { 
-  font-family: var(--font-family-heading); 
-  font-size: 1rem; 
-  font-weight: 600; 
-  margin-bottom: 0.75rem; 
-  color: rgb(0,0,0); 
+html.dark .timeline-card-awards {
+  border-top-color: rgba(255, 255, 255, 0.1);
 }
 
-html.dark .awards-heading { color: rgb(255,255,255); }
+.awards-heading {
+  font-family: var(--font-family-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: rgb(0, 0, 0);
+}
+html.dark .awards-heading {
+  color: rgb(255, 255, 255);
+}
 
-.awards-list { list-style: none; padding: 0; margin: 0; }
-
+.awards-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 .awards-list li {
-  font-family: var(--font-family-brand); 
-  font-size: 0.875rem; 
-  line-height: 1.6; 
-  color: rgb(245,158,11);
-  padding-left: 1.5rem; 
-  position: relative; 
-  margin-bottom: 0.5rem; 
-  word-wrap: break-word; 
+  font-family: var(--font-family-brand);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgb(245, 158, 11);
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
   overflow-wrap: break-word;
 }
-
-.awards-list li::before { 
-  content: "★"; 
-  position: absolute; 
-  left: 0; 
-  color: rgb(245,158,11); 
-  font-size: 1rem; 
+.awards-list li::before {
+  content: "★";
+  position: absolute;
+  left: 0;
+  color: rgb(245, 158, 11);
+  font-size: 1rem;
+}
+html.dark .awards-list li,
+html.dark .awards-list li::before {
+  color: rgb(251, 191, 36);
 }
 
-html.dark .awards-list li, 
-html.dark .awards-list li::before { color: rgb(251,191,36); }
-
-/* Tech tags */
+/* Tech tags inside timeline cards */
 .timeline-card-technologies-vertical {
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 0.5rem; 
-  margin-top: auto; 
-  padding-top: 1rem; 
-  border-top: 1px solid rgba(0,0,0,0.1); 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   width: 100%;
 }
-
-html.dark .timeline-card-technologies-vertical { border-top-color: rgba(255,255,255,0.1); }
+html.dark .timeline-card-technologies-vertical {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
 
 .technology-tag-vertical {
-  font-family: var(--font-family-brand); 
-  font-size: 0.75rem; 
-  font-weight: 500; 
+  font-family: var(--font-family-brand);
+  font-size: 0.75rem;
+  font-weight: 500;
   padding: 0.25rem 0.75rem;
-  background-color: rgba(0,0,0,0.1); 
-  color: rgb(0,0,0); 
-  border-radius: 0.375rem; 
-  word-wrap: break-word; 
+  background-color: rgba(0, 0, 0, 0.1);
+  color: rgb(0, 0, 0);
+  border-radius: 0.375rem;
+  word-wrap: break-word;
   overflow-wrap: break-word;
 }
-
-html.dark .technology-tag-vertical { 
-  background-color: rgba(255,255,255,0.1); 
-  color: rgb(255,255,255); 
+html.dark .technology-tag-vertical {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgb(255, 255, 255);
 }
 
-/* Expand/Collapse */
-.timeline-expand-wrapper { 
-  position: relative; 
-  display: flex; 
-  justify-content: center; 
-  padding: 2rem 0; 
-  margin-top: 1rem; 
-  width: 100%; 
+/* Expand/Collapse CTA (if used) */
+.timeline-expand-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .timeline-expand-button {
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  gap: 0.25rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
   padding: 1rem 2rem;
-  border: none; 
-  background: none; 
-  cursor: pointer; 
-  transition: all 0.3s ease; 
-  color: rgb(37,99,235);
-  font-family: var(--font-family-brand); 
-  font-size: 0.875rem; 
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgb(37, 99, 235);
+  font-family: var(--font-family-brand);
+  font-size: 0.875rem;
   font-weight: 500;
 }
-
-html.dark .timeline-expand-button { color: rgb(96,165,250); }
-
-.timeline-expand-button:hover { 
-  color: rgb(29,78,216); 
-  transform: translateY(3px); 
+html.dark .timeline-expand-button {
+  color: rgb(96, 165, 250);
 }
 
-html.dark .timeline-expand-button:hover { color: rgb(147,197,253); }
-
-.timeline-expand-icon { 
-  width: 1.5rem; 
-  height: 1.5rem; 
-  transition: transform 0.3s ease; 
+.timeline-expand-button:hover {
+  color: rgb(29, 78, 216);
+  transform: translateY(3px);
+}
+html.dark .timeline-expand-button:hover {
+  color: rgb(147, 197, 253);
 }
 
-.timeline-expand-icon.expanded { transform: rotate(180deg); }
+.timeline-expand-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 0.3s ease;
+}
+.timeline-expand-icon.expanded {
+  transform: rotate(180deg);
+}
+.timeline-expand-text {
+  margin-top: 0.25rem;
+}
 
-.timeline-expand-text { margin-top: 0.25rem; }
+/* =========================================
+   Leadership & Volunteering
+   ========================================= */
 
 .leadership-section {
-  grid-column: 2 / 12;   
+  grid-column: 2 / 12;
   margin-top: 4rem;
 }
 
+/* Section heading */
 .leadership-heading {
   font-family: var(--font-family-heading);
-  text-align: center;
   font-size: 1.75rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: rgb(0,0,0);
+  text-align: center;
+  margin-bottom: 1.75rem;
+  color: rgb(0, 0, 0);
+}
+html.dark .leadership-heading {
+  color: rgb(255, 255, 255);
 }
 
-html.dark .leadership-heading { color: rgb(255,255,255); }
+/* Grid wrapper */
+.leadership-grid-wrapper {
+  width: 100%;
+}
 
-/* Leadership / Extracurricular Grid (three-card layout) */
-.leadership-grid-wrapper { width: 100%; }
-
+/* Card grid: 3 columns on large screens */
 .leadership-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  align-items: start;
-  padding: 0 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.75rem;
+  align-items: stretch;
 }
 
+/* Individual card */
 .leadership-card {
-  background-color: transparent;
-  border: 1px solid rgba(128,128,128,0.22);
-  border-radius: 12px;
-  padding: 1.25rem;
-  box-sizing: border-box;
-  min-height: 160px;
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-sizing: border-box;
+
+  background-color: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+html.dark .leadership-card {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.85);
 }
 
-html.dark .leadership-card { border-color: rgba(255,255,255,0.06); }
+.leadership-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.35);
+  border-color: rgba(96, 165, 250, 0.9);
+}
 
+/* Icon badge */
 .leadership-card-icon {
-  width: 44px; 
-  height: 44px; 
-  border-radius: 50%;
-  display: inline-flex; 
-  align-items: center; 
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  background: rgba(37,99,235,0.06); 
-  color: rgb(37,99,235); 
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+
+  background: rgba(37, 99, 235, 0.08);
+  color: rgb(37, 99, 235);
+}
+html.dark .leadership-card-icon {
+  background: rgba(96, 165, 250, 0.08);
+  color: rgb(96, 165, 250);
 }
 
-html.dark .leadership-card-icon { 
-  background: rgba(96,165,250,0.06); 
-  color: rgb(96,165,250); 
+/* Text hierarchy */
+.leadership-card-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: rgb(255, 255, 255);
+}
+html.light .leadership-card-title {
+  color: rgb(15, 23, 42);
 }
 
-.leadership-card-title { 
-  font-family: var(--font-family-heading); 
-  font-size: 1.125rem; 
-  font-weight: 700; 
-  margin-bottom: 0.25rem; 
-  color: rgb(0,0,0); 
+.leadership-card-organization {
+  font-family: var(--font-family-brand);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: rgb(37, 99, 235);
+}
+html.dark .leadership-card-organization {
+  color: rgb(96, 165, 250);
 }
 
-html.dark .leadership-card-title { color: rgb(255,255,255); }
-
-.leadership-card-organization { 
-  color: rgb(37,99,235); 
-  margin-bottom: 0.5rem; 
-  font-weight: 600; 
+.leadership-card-period {
+  font-family: var(--font-family-brand);
+  font-size: 0.9rem;
+  margin-bottom: 0.9rem;
+  color: rgba(15, 23, 42, 0.7);
+}
+html.dark .leadership-card-period {
+  color: rgba(248, 250, 252, 0.75);
 }
 
-html.dark .leadership-card-organization { color: rgb(96,165,250); }
-
-.leadership-card-period { 
-  color: rgba(0,0,0,0.6); 
-  font-size: 0.95rem; 
-  margin-bottom: 0.75rem; 
+.leadership-card-description {
+  font-family: var(--font-family-brand);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(15, 23, 42, 0.8);
+}
+html.dark .leadership-card-description {
+  color: rgba(241, 245, 249, 0.85);
 }
 
-html.dark .leadership-card-period { color: rgba(255,255,255,0.75); }
-
-.leadership-card-description { 
-  color: rgba(0,0,0,0.75); 
-  margin-bottom: 0.5rem; 
+/* Bulleted body inside leadership cards */
+.leadership-card-description ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+.leadership-card-description li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+.leadership-card-description li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
+  color: rgb(37, 99, 235);
+}
+html.dark .leadership-card-description li::before {
+  color: rgb(96, 165, 250);
+}
+/* =========================================
+   Responsive – Timeline & Leadership
+   ========================================= */
 
-html.dark .leadership-card-description { color: rgba(255,255,255,0.82); }
-
-/* Responsive (experience-specific) */
+/* Small screens: adjust padding and timeline spacing */
 @media (max-width: 768px) {
-  .experience-section { padding: 5rem 1rem 3rem; }
-  .experience-heading { font-size: 2rem; }
-  
+  .experience-section {
+    /* slightly smaller side padding so cards can breathe */
+    padding: 5rem 0.5rem 3rem;
+  }
+
+  .experience-heading {
+    font-size: 2rem;
+  }
+
+  /* Let the timeline use full width and reduce wrapper padding */
+  .timeline-container {
+    grid-column: 1 / -1;
+    --timeline-line-left: 1.75rem;
+    --timeline-wrapper-padding: 1.25rem;
+  }
+
   .timeline-wrapper.vertical {
     width: 100%;
-    padding: 0 3rem;
+    padding: 0 var(--timeline-wrapper-padding);
   }
-  
-  .timeline-container { --timeline-line-left: 2rem; }
-  .timeline-line-vertical { left: 2rem; }
-  
-  .timeline-card-vertical {
-    padding-left: 3.5rem;
-  }
-  
-  .timeline-card-marker-vertical {
+
+  .timeline-line-vertical {
     left: var(--timeline-line-left);
   }
-  
+
+  /* Bring the card closer to the line but keep space for marker */
+  .timeline-card-vertical {
+    padding-left: 3rem;
+  }
+
   .timeline-card-content-vertical {
     width: 100%;
     max-width: 100%;
   }
-  
-  .timeline-card-vertical.left .timeline-card-period-vertical { 
-    white-space: nowrap; 
+
+  .timeline-card-vertical.left .timeline-card-period-vertical {
+    white-space: nowrap;
   }
-  
-  .timeline-card-vertical.right .timeline-card-period-vertical { 
-    text-align: left; 
-    white-space: nowrap; 
+  .timeline-card-vertical.right .timeline-card-period-vertical {
+    text-align: left;
+    white-space: nowrap;
   }
-  
-  .timeline-card-period-vertical { white-space: normal; }
-  
+  .timeline-card-period-vertical {
+    white-space: normal;
+  }
+
   .timeline-card-vertical.left .timeline-card-achievements-vertical li,
   .timeline-card-vertical.right .timeline-card-achievements-vertical li {
-    padding-left: 1.5rem; 
-    padding-right: 0; 
+    padding-left: 1.5rem;
+    padding-right: 0;
     text-align: left;
   }
-  
-  .timeline-card-vertical.left .timeline-card-achievements-vertical li::before { 
-    left: 0; 
-    right: auto; 
-    content: "▹"; 
+  .timeline-card-vertical.left .timeline-card-achievements-vertical li::before {
+    left: 0;
+    right: auto;
+    content: "▹";
   }
-  
-  .timeline-card-technologies-vertical { justify-content: flex-start !important; }
-  .leadership-grid { grid-template-columns: 1fr; }
-  .leadership-card { min-height: auto; }
+
+  .timeline-card-technologies-vertical {
+    justify-content: flex-start !important;
+  }
+
+  /* Leadership: single column on mobile */
+  .leadership-section {
+    grid-column: 1 / -1;
+    margin-top: 3rem;
+  }
+
+  .leadership-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .leadership-card {
+    min-height: auto;
+  }
 }
 
-/* Responsive grid adjustments */
-@media (max-width: 1024px) {
-  .leadership-grid { grid-template-columns: repeat(2, 1fr); }
+
+
+
+/* Medium screens: leadership 2-column layout (tablets only) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .leadership-section {
+    grid-column: 1 / -1;
+    margin-top: 3.5rem;
+  }
+
+  .leadership-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
 }
 
+/* Very small screens: tighten timeline vars */
 @media (max-width: 480px) {
-  .timeline-wrapper.vertical { 
+  .timeline-container {
+    --timeline-line-left: 1.5rem;
+    --timeline-wrapper-padding: 1rem;
+  }
+
+  .timeline-wrapper.vertical {
     padding: 0 var(--timeline-wrapper-padding);
-   }
-  .timeline-container { 
-   --timeline-line-left: 1.5rem; 
-    --timeline-wrapper-padding: 0.5rem;
-   }
-  .timeline-card-vertical { padding-left: 3rem; }
-  
+  }
+
+  .timeline-card-vertical {
+    padding-left: 2.75rem;
+  }
+
   .timeline-card-marker-vertical {
-    left: var(--timeline-line-left);
     width: 0.8rem;
     height: 0.8rem;
   }
-  
-  .timeline-card-content-vertical { padding: 1.25rem; }
+
+  .timeline-card-content-vertical {
+    padding: 1.25rem;
+  }
 }

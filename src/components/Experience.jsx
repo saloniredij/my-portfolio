@@ -14,10 +14,20 @@ const Experience = () => {
       period: "June 2025 - August 2025",
       description: "",
       achievements: [
-        "Built a real-time doctor–patient chat messaging feature with WebSockets in ReactJS for instant messaging, Spring Boot for backend logic and S3 buckets for storing chat history, reducing in-person follow-ups.",
+        "Built a real-time doctor-patient chat messaging feature with WebSockets in ReactJS for instant messaging, Spring Boot for backend logic and S3 buckets for storing chat history, reducing in-person follow-ups.",
         "Implemented medical chatbot using AWS Bedrock Claude Haiku, Amazon Lex and OpenSearch Knowledge Base and RAG pipeline to deliver context-aware answers, reducing repetitive patient queries by 60%.",
         "Integrated chatbot into web app with REST API calls to Lex and in-memory caching to maintain conversational context, ensuring real-time chats, better server performance and lower cloud storage costs."
       ],
+      technologies: []
+    },
+        {
+      id: 2,
+      title: "Graduate Research Assistant - Machine Learning",
+      company: "University at Buffalo, SUNY",
+      period: "May 2025 - Present",
+      description: "",
+      achievements: [
+        "Developing segmentation pipeline for automated detection of HRF’s and HRS’s in Optical Coherence Tomography (OCT) scans of eyes, accelerating biomarker identification to support early diagnosis of age macular degeneration and reduce manual screening time."      ],
       technologies: []
     },
     {
@@ -27,17 +37,12 @@ const Experience = () => {
       period: "June 2022 - July 2024",
       description: "",
       achievements: [
-        "Collaborated with cross-functional teams to digitalized retirement and annuity transactions by developing applications using Unqork platform, boosting digital submissions 45% YoY.",
-        "Digitalized data collection for 1500+ executives, replacing manual Excel processes, reducing transaction turnaround times from 5 business days to 2 and saving $4M annually operational costs.",
-        "Developed microservices in Unqork and Springboot to support modular application architecture, enabling seamless integration with internal and external systems.",
-        "Diagnosed and resolved production and UAT issues by analyzing Splunk logs, identifying root causes to minimize client impact and improve system reliability.",
-        "Conducted code reviews and performed unit testing for new application features to ensure high-quality deliverables, minimizing possibilities of production issues.",
-        "Redesigned UI across 10 applications, achieving 100% visual consistency with organizational branding.",
-        "Designed and demonstrated MVPs for Wealth Asset Management team to support strategic business decisions during migration from legacy platforms.",
-        "Collaborated in Agile delivery processes with stakeholders and cross-functional teams, contributing to sprint planning and retrospectives, ensuring efficient project delivery and continuous process improvement."
-      ],
+        "Led key digitalization efforts for retirement and annuity transactions using the Unqork platform, increasing digital submissions by 45 percent year over year and modernizing legacy processes.",
+      "Replaced manual Excel workflows by automating data collection for 1,500 plus executives, cutting turnaround time from five days to two and delivering four million dollars in annual operational savings.",
+      "Built microservices in Unqork and Spring Boot, redesigned UI across ten applications, and resolved production issues through Splunk based root cause analysis to improve system reliability and user experience.",
+      "Designed MVPs that informed Wealth Asset Management’s migration strategy, and collaborated across Agile teams to support smooth delivery, effective planning, and continuous improvement."      ],
       awards: [
-        "TIAA Innovation Team Award 2023",
+        "TIAA Innovation Award 2023",
         "Performer for Quarter II 2023, Quarter IV 2023",
         "Gold and Silver awards for Star Performer of PI 2 2023 and PI 1 2024"
       ],
@@ -49,25 +54,26 @@ const Experience = () => {
       company: "D.Y. Patil University",
       period: "January 2021 - May 2022",
       description: "",
-      achievements: [],
-      technologies: []
-    },
-    {
-      id: 5,
-      title: "Machine Learning Intern",
-      company: "GlobalShala",
-      period: "November 2021 - March 2022",
-      description: "",
-      achievements: [],
-      technologies: []
+      achievements: [
+      "Contributed to the design and development of an AI powered real time bus navigation system for blind and visually impaired individuals, focusing on voice assisted interaction, route detection, and intuitive user flows.",
+"Built and tested the mobile application modules using Google Maps API, GPS based tracking, Dialogflow, and Firebase to support accurate bus location updates and seamless communication between users and app.",
+"Led iterative usability testing by conducting blindfolded user trials with more than 80 participants, gathering feedback, and improving accessibility features and voice guidance accuracy.",
+"Assisted in structuring the research methodology, analyzing system performance, and documenting results for publication in the ICACC 2022 conference proceedings.",
+"Collaborated with faculty and peers to refine system architecture, validate problem statements, and ensure the solution addressed real mobility barriers faced by visually impaired commuters."],     
+technologies: []
     },
     {
       id: 6,
       title: "Web Developer Intern",
       company: "Cynthians Edtech",
-      period: "April 2021 - June 2021",
+      period: "April 2021 - Oct 2021",
       description: "",
-      achievements: [],
+      achievements: [
+        "Took on the challenge of replacing outdated manual attendance tracking by building a full stack attendance management system using PHP, CodeIgniter, AJAX, MySQL, and Bootstrap, giving the organization a reliable real time workflow.",
+"Transformed raw attendance data into clear, actionable insights through dashboards and Google Charts, helping teachers and admins quickly spot trends, low engagement, and irregular patterns.",
+"Eliminated error prone spreadsheets and repeated data entry by automating the entire attendance cycle, improving accuracy and day to day efficiency for educators.",
+"Worked closely with academic and operations teams to understand their pain points and shape features that made the system practical, easy to adopt, and aligned with real classroom needs."
+      ],
       technologies: []
     }
   ]
@@ -78,99 +84,53 @@ const Experience = () => {
       title: "McKinsey Forward Learner",
       organization: "McKinsey & Company",
       period: "October 2025 - December 2025",
-      description: "",
+      description: "Through the McKinsey.org Forward program, I strengthened my leadership, communication, adaptability, resilience, and problem solving skills by tackling real workplace challenges, applying new tools, and driving meaningful impact in a fast paced, collaborative learning environment.",
       achievements: [],
       technologies: []
     },
     {
       id: 2,
-      title: "Student Assistant",
-      organization: "University at Buffalo",
-      period: "January 2025 - Present",
-      description: "",
-      achievements: [
-        "Assisted over 200 students, faculty, and visitors daily at the Harriman Hall front desk, providing exceptional customer service.",
-        "Supported 30+ campus events by coordinating logistics, setting up spaces, and supervising operations.",
-        "Developed strong leadership, teamwork, and organizational skills through hands-on experience in a dynamic university environment."
-      ],
-      technologies: []
-    },
-    {
-      id: 3,
-      title: "Tutor",
-      organization: "Western New York Community School (Graduate School of Education, University at Buffalo - Brainy Bulls Initiative)",
-      period: "January 2025 - June 2025",
-      description: "",
-      achievements: [
-        "Provided academic support and tutoring services to students through the Brainy Bulls initiative, funded by the Graduate School of Education at University at Buffalo.",
-        "Helped students overcome academic challenges and build confidence in their learning abilities.",
-        "Collaborated with educational programs to enhance student learning outcomes in the Western New York community."
-      ],
+      title: "Peer Code Mentor",
+      organization: "TIAA",
+      period: "April 2023 - June 2024",
+      description: "As a peer code mentor at TIAA, I guided trainees and interns in Java Spring Boot and led a week long training program that helped teams across multiple levels rapidly build the skills they needed to work confidently with the Unqork Enterprise platform, strengthening both individual growth and team performance.",
+      achievements: [],
       technologies: []
     },
     {
       id: 4,
-      title: "STEM Outreach Volunteer",
-      organization: "University at Buffalo",
-      period: "January 2025 - February 2025",
-      description: "",
-      achievements: [
-        "Assisted students of 5th and 8th grade in developing and executing hands-on projects as part of the STEM outreach program in collaboration with National Grid and University at Buffalo, SUNY.",
-        "Supported coordination of STEM activities and helped students apply theoretical concepts to real-world engineering challenges.",
-        "Contributed to educational initiatives that inspire young learners to pursue careers in science, technology, engineering, and mathematics."
-      ],
+      title: "Tech Lead",
+      organization: "ACM, Association for Computing Machinery",
+      period: "August 2019 - June 2020",
+      description: "As Tech Lead for the ACM chapter, I drove the planning and execution of workshops, seminars, and tech events that strengthened community engagement and hands-on learning, building strong project management and leadership skills while creating real value for students in computing.",
+      achievements: [ ],
       technologies: []
     },
     {
       id: 5,
-      title: "Mentor",
+      title: "Tutor",
+      organization: "Western New York Community School",
+      period: "January 2025 - June 2025",
+      description: "Through the Brainy Bulls initiative, I provided focused academic support that helped students overcome learning challenges, build confidence, and improve outcomes, reflecting my commitment to expanding educational access and driving real progress in the Western New York community.",
+      achievements: [      ],
+      technologies: []
+    },
+    {
+      id: 5,
+      title: "Mentor & Tutor",
       organization: "Angel Xpress Foundation",
       period: "June 2021 - May 2023",
-      description: "",
-      achievements: [
-        "Worked as a mentor and tutor with young learners from diverse backgrounds, believing in the power of education to uplift individuals and communities.",
-        "Found great sense of fulfillment in helping students overcome academic challenges and build confidence.",
-        "Developed strong interpersonal and communication skills while supporting students' educational growth and personal development."
-      ],
+      description: "Mentoring and tutoring young learners from different backgrounds gave me the chance to help them improve their skills, boost their grades, and feel more confident in themselves, and it showed me how meaningful steady support and simple guidance can be in someone’s educational journey.",
+      achievements:  [],
       technologies: []
     },
     {
       id: 6,
-      title: "Event Coordinator",
-      organization: "ACM, Association for Computing Machinery",
-      period: "August 2019 - June 2020",
-      description: "",
-      achievements: [
-        "Coordinated computing and technology events for the Association for Computing Machinery chapter.",
-        "Organized workshops, seminars, and networking events to promote learning and collaboration among students.",
-        "Developed event planning and project management skills while supporting the computing community."
-      ],
-      technologies: []
-    },
-    {
-      id: 7,
-      title: "Volunteer",
-      organization: "Ramrao Adik Institute of Technology",
-      period: "November 2018 - June 2022",
-      description: "",
-      achievements: [
-        "Volunteered for a city marathon Udaan-Run for Cause dedicated to the education of children.",
-        "Tutored at nearby orphanages to support education for students from 1st grade to 10th grade.",
-        "Contributed to community initiatives focused on providing educational opportunities to underprivileged children."
-      ],
-      technologies: []
-    },
-    {
-      id: 8,
       title: "Public Relations Coordinator",
       organization: "SocialWing RAIT",
       period: "August 2018 - May 2019",
-      description: "",
-      achievements: [
-        "Visited colleges and different institutions to raise funds for the orphans at Girija orphanage, Kharghar.",
-        "Approached people to make them aware of the cause and responsibly sent their donations to the orphanage.",
-        "Developed strong communication and public relations skills while supporting social welfare initiatives."
-      ],
+      description: " As a PR coordinator, I visited colleges and nearby institutions to raise funds and share the story of Girija Orphanage, spoke with people one on one about why their support mattered, ensured every donation reached the children and volunteered at the Udaan marathon to further advocate for their education.",
+      achievements: [      ],
       technologies: []
     }
   ]
