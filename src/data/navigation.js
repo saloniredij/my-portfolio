@@ -15,11 +15,11 @@ export const navigationItems = [
       label: 'Experience',
       href: '#experience'
     },
-    {
-      id: 'projects',
-      label: 'Projects',
-      href: '#projects'
-    },
+    // {
+    //   id: 'projects',
+    //   label: 'Projects',
+    //   href: '#projects'
+    // },
     {
       id: 'education',
       label: 'Education',

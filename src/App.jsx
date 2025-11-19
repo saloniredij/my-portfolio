@@ -22,7 +22,7 @@ function App() {
           <Home />
           <About />
           <Experience />
-          <Projects />
+          {/* <Projects /> */}
           <Education />
           <TechStack />
           {/* <Contact /> */}
